@@ -13,101 +13,108 @@
   --fire:#c0392b;--light:#2f6fa8;--human:#d98324;--ok:#3a7d44;
   --flag:#a93226;--flagbg:#fbeae8;--okbg:#eaf6ec;
   --shadow:0 1px 4px rgba(0,0,0,.08);
-  --r1:#fbeae8;--r2:#f7d5d0;--r3:#f0a090;--r4:#e06050;--r5:#c0392b;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font:14px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);}
 .wrap{max-width:1200px;margin:0 auto;padding:18px 18px 60px}
 
-/* ── Header ── */
-header{background:linear-gradient(135deg,#2a2520 0%,#5a2a1e 100%);color:#fff;border-radius:12px;padding:16px 22px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+/* Header */
+header{background:linear-gradient(135deg,#2a2520 0%,#5a2a1e 100%);color:#fff;border-radius:12px;padding:16px 22px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
 header h1{font-size:22px;font-weight:800;letter-spacing:-.3px}
 header .sub{font-size:12px;color:#e9d8c6;margin-top:2px}
 header .hstats{display:flex;gap:16px;font-size:12px;color:#fde8e0;text-align:right}
 header .hstats span{display:block;font-size:16px;font-weight:700;color:#fff}
 
-/* ── Scope bar ── */
+/* Scope bar */
 .scopebar{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;font-size:11.5px}
 .scopebar span{background:#efe8dd;border:1px solid var(--line);border-radius:20px;padding:3px 10px;color:#5b5147}
 .scopebar .warn{background:var(--flagbg);border-color:#e8c4bf;color:var(--flag);font-weight:600}
 
-/* ── Headline ── */
-.headline{background:linear-gradient(180deg,#fff,#fdf8f3);border:1px solid var(--line);border-left:4px solid var(--fire);border-radius:10px;padding:13px 18px;margin-bottom:18px;box-shadow:var(--shadow)}
-.headline h2{font-size:15px;margin-bottom:4px}
-.headline p{font-size:13px;color:#5b5147;line-height:1.5}
-.headline b{color:var(--fire)}
-
-/* ── Scorecard grid ── */
-.scorecard{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:18px}
-@media(max-width:800px){.scorecard{grid-template-columns:repeat(2,1fr)}}
-.sc-tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden}
-.sc-tile:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(0,0,0,.1)}
-.sc-tile.sel{outline:2px solid var(--ink);outline-offset:1px}
-.sc-tile .sc-name{font-size:12px;font-weight:700;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sc-tile .sc-ratio{font-size:22px;font-weight:800;line-height:1;margin-bottom:3px}
-.sc-tile .sc-label{font-size:10px;color:var(--muted)}
-.sc-tile .sc-lever{font-size:9.5px;margin-top:5px;padding:1px 6px;border-radius:3px;display:inline-block}
-.sc-tile .sc-bar{position:absolute;bottom:0;left:0;right:0;height:3px}
-.ratio-above .sc-ratio{color:var(--flag)}
-.ratio-near  .sc-ratio{color:#9a6020}
-.ratio-below .sc-ratio{color:var(--ok)}
-.ratio-above .sc-bar{background:var(--flag)}
-.ratio-near  .sc-bar{background:#d98324}
-.ratio-below .sc-bar{background:var(--ok)}
-
-/* ── Tabs ── */
-.tabs{display:flex;gap:3px;margin-bottom:16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.tab{padding:8px 14px;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;border-radius:6px 6px 0 0;border:1px solid transparent;border-bottom:none;white-space:nowrap}
+/* Tabs — only 3 */
+.tabs{display:flex;gap:3px;margin-bottom:16px;border-bottom:2px solid var(--line)}
+.tab{padding:10px 22px;font-size:13.5px;font-weight:700;color:var(--muted);cursor:pointer;border-radius:8px 8px 0 0;border:1px solid transparent;border-bottom:none;letter-spacing:.01em}
 .tab:hover{color:var(--ink);background:#f0ece4}
-.tab.on{color:var(--ink);background:var(--card);border-color:var(--line);border-bottom:1px solid var(--card);margin-bottom:-1px}
+.tab.on{color:var(--ink);background:var(--card);border-color:var(--line);border-bottom:2px solid var(--card);margin-bottom:-2px}
+.tab .tab-sub{display:block;font-size:10px;font-weight:400;color:var(--faint);margin-top:1px}
+.tab.on .tab-sub{color:var(--muted)}
 .tabpanel{display:none}.tabpanel.on{display:block}
 
-/* ── Region detail ── */
-.detail{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 22px;box-shadow:var(--shadow)}
-.detail h2{font-size:20px;margin-bottom:2px;display:flex;align-items:center;gap:8px}
-.detail .loc{color:var(--muted);font-size:12px;margin-bottom:16px}
-.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:12px;margin-bottom:18px}
-.kpi{background:#faf8f5;border:1px solid var(--line);border-radius:8px;padding:10px 12px}
-.kpi .v{font-size:20px;font-weight:800;line-height:1.05}
-.kpi .l{font-size:10.5px;color:var(--muted);margin-top:2px}
-.kpi .n{font-size:10px;color:#c9bdac}
-.kpi.flagged{background:var(--flagbg);border-color:#e8c4bf}
-.kpi.flagged .v{color:var(--flag)}
-
-/* ── Ratio gauge ── */
-.gauge-wrap{margin-bottom:16px}
-.gauge-track{height:10px;background:#f0ece4;border-radius:5px;position:relative;overflow:visible}
-.gauge-fill{height:10px;border-radius:5px;transition:width .4s}
-.gauge-threshold{position:absolute;top:-3px;width:2px;height:16px;background:var(--ink);border-radius:1px}
-.gauge-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:3px}
-
-/* ── Stacked cause bar ── */
-.cause-stack{height:22px;border-radius:4px;overflow:hidden;display:flex;margin:8px 0 4px;cursor:default}
-.cause-stack div{height:100%;transition:width .3s}
-.cause-legend{display:flex;flex-wrap:wrap;gap:6px;font-size:11px;margin-top:4px}
-.cause-legend span{display:flex;align-items:center;gap:3px;cursor:pointer}
-.cause-legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:2px;flex-shrink:0}
-
-/* ── Size visual ── */
-.size-visual{background:#faf8f5;border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-top:12px}
-.size-visual h4{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:8px}
-.size-track{height:8px;background:#f0ece4;border-radius:4px;position:relative;margin:16px 0 4px}
-.size-marker{position:absolute;transform:translateX(-50%);top:-18px;font-size:10px;text-align:center;white-space:nowrap}
-.size-dot{position:absolute;width:12px;height:12px;border-radius:50%;border:2px solid #fff;transform:translate(-50%,-2px);box-shadow:0 1px 3px rgba(0,0,0,.2)}
-
-/* ── Sparkline ── */
-.sparkline{display:flex;align-items:flex-end;gap:1px;height:36px;margin:6px 0}
-.sparkline .bar{flex:1;border-radius:2px 2px 0 0;min-height:2px;transition:height .2s}
-
-/* ── Cards ── */
+/* Cards */
 .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;box-shadow:var(--shadow)}
 h3.sect{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:700}
 .nullnote{font-size:11.5px;color:var(--flag);background:var(--flagbg);border-radius:6px;padding:5px 10px;margin-top:8px}
 .oknote{font-size:11.5px;color:var(--ok);background:var(--okbg);border-radius:6px;padding:5px 10px;margin-top:8px}
 .note2012{font-size:11.5px;background:#fdf3e7;border:1px solid #f0d090;border-radius:6px;padding:5px 10px;margin-top:8px;color:#7a5010}
 
-/* ── Skill buttons ── */
-.skill-btns{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
+/* Tooltip */
+.tip-wrap{display:inline-flex;align-items:center;gap:3px}
+.tip-icon{position:relative;width:14px;height:14px;border-radius:50%;background:var(--faint);color:#fff;font-size:9px;display:inline-flex;align-items:center;justify-content:center;cursor:help;flex-shrink:0;font-style:normal;font-weight:700;vertical-align:middle}
+.tip-icon::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#2a2520;color:#fff;padding:6px 10px;border-radius:7px;font-size:11px;line-height:1.45;white-space:normal;width:220px;z-index:999;pointer-events:none;opacity:0;transition:opacity .15s;font-weight:400}
+.tip-icon:hover::after{opacity:1}
+
+/* Scorecard */
+.scorecard{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:18px}
+@media(max-width:800px){.scorecard{grid-template-columns:repeat(2,1fr)}}
+.sc-tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden}
+.sc-tile:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.sc-tile.sel{outline:2.5px solid var(--ink);outline-offset:1px}
+.sc-tile .sc-name{font-size:12px;font-weight:700;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sc-tile .sc-ratio{font-size:22px;font-weight:800;line-height:1;margin-bottom:3px}
+.sc-tile .sc-label{font-size:10px;color:var(--muted)}
+.sc-tile .sc-lever{font-size:9.5px;margin-top:5px;padding:1px 6px;border-radius:3px;display:inline-block}
+.sc-tile .sc-bar{position:absolute;bottom:0;left:0;right:0;height:3px}
+.ratio-above .sc-ratio{color:var(--flag)}.ratio-near .sc-ratio{color:#9a6020}.ratio-below .sc-ratio{color:var(--ok)}
+.ratio-above .sc-bar{background:var(--flag)}.ratio-near .sc-bar{background:#d98324}.ratio-below .sc-bar{background:var(--ok)}
+
+/* Map */
+#map-container{height:460px;border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+
+/* ── WHY tab ── */
+.lever-banner{border-radius:10px;padding:14px 18px;margin-bottom:14px;display:flex;align-items:center;gap:14px}
+.lever-icon{font-size:32px;line-height:1}
+.lever-title{font-size:16px;font-weight:800}
+.lever-desc{font-size:12.5px;margin-top:2px;opacity:.85}
+.lever-detection{background:linear-gradient(135deg,#deeef8,#c6e0f5);color:#1a3a5c}
+.lever-prevention{background:linear-gradient(135deg,#dff0e4,#c6e8cd);color:#1a3d22}
+.lever-both{background:linear-gradient(135deg,#fdf0db,#f8e0b8);color:#5a3a0a}
+
+/* KPI row */
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:14px}
+.kpi{background:#faf8f5;border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.kpi .v{font-size:20px;font-weight:800;line-height:1.05}
+.kpi .l{font-size:10.5px;color:var(--muted);margin-top:2px;display:flex;align-items:center;gap:3px}
+.kpi .n{font-size:10px;color:#c9bdac;margin-top:2px}
+.kpi.flagged{background:var(--flagbg);border-color:#e8c4bf}.kpi.flagged .v{color:var(--flag)}
+
+/* Gauge */
+.gauge-track{height:10px;background:#f0ece4;border-radius:5px;position:relative;overflow:visible}
+.gauge-fill{height:10px;border-radius:5px}
+.gauge-threshold{position:absolute;top:-3px;width:2px;height:16px;background:var(--ink);border-radius:1px}
+.gauge-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:3px}
+
+/* Cause bars */
+.cause-top-bar{height:28px;border-radius:6px;overflow:hidden;display:flex;margin:8px 0 4px}
+.cause-top-bar div{height:100%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;overflow:hidden;transition:width .3s}
+.cause-stack{height:20px;border-radius:4px;overflow:hidden;display:flex;margin:8px 0 4px}
+.cause-stack div{height:100%}
+.cause-legend{display:flex;flex-wrap:wrap;gap:6px;font-size:11px;margin-top:4px}
+.cause-legend span{display:flex;align-items:center;gap:3px}
+.cause-legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.expand-btn{background:none;border:1px solid var(--line);border-radius:6px;padding:4px 12px;font-size:12px;cursor:pointer;color:var(--muted);margin-top:8px}
+.expand-btn:hover{color:var(--ink);border-color:var(--ink)}
+.expandable{display:none}.expandable.open{display:block}
+
+/* Sparkline */
+.sparkline{display:flex;align-items:flex-end;gap:1px;height:36px;margin:6px 0}
+.sparkline .bar{flex:1;border-radius:2px 2px 0 0;min-height:2px}
+
+/* Size visual */
+.size-track{height:8px;background:#f0ece4;border-radius:4px;position:relative;margin:20px 0 4px}
+.size-marker{position:absolute;transform:translateX(-50%);top:-18px;font-size:10px;text-align:center;white-space:nowrap}
+.size-dot{position:absolute;width:12px;height:12px;border-radius:50%;border:2px solid #fff;transform:translate(-50%,-2px);box-shadow:0 1px 3px rgba(0,0,0,.2)}
+
+/* Skill buttons */
+.skill-btns{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
 .skill-btn{display:inline-flex;align-items:center;gap:5px;background:var(--ink);color:#fff;border:none;border-radius:7px;padding:7px 14px;font-size:12.5px;font-weight:600;cursor:pointer;transition:opacity .15s}
 .skill-btn:hover{opacity:.82}
 .skill-btn.sec{background:#fff;color:var(--ink);border:1px solid var(--line)}
@@ -120,14 +127,10 @@ h3.sect{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var
 .tier-A{color:var(--ok);font-weight:700}.tier-B{color:#7a6030;font-weight:700}
 .tier-C{color:var(--flag);font-weight:700}.tier-D{color:#888;font-weight:700}
 
-/* ── Charts ── */
-.chart-wrap{position:relative;height:220px;margin-top:10px}
-.chart-wrap-tall{position:relative;height:280px;margin-top:10px}
-select.fw{padding:6px 10px;font-size:13px;border:1px solid var(--line);border-radius:6px;background:#fff;margin-bottom:10px}
-
-/* ── Recommend ── */
-.rec-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:700px){.rec-grid{grid-template-columns:1fr}}
+/* DECIDE tab */
+.rec-card{background:linear-gradient(135deg,#fff,#fdf8f2);border:1px solid var(--line);border-left:4px solid var(--fire);border-radius:10px;padding:18px 20px;margin-bottom:14px;box-shadow:var(--shadow)}
+.rec-score-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+@media(max-width:700px){.rec-score-grid{grid-template-columns:1fr}}
 .rec-list{list-style:none}
 .rec-list li{padding:7px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:2px}
 .rec-list li:last-child{border:none}
@@ -136,53 +139,53 @@ select.fw{padding:6px 10px;font-size:13px;border:1px solid var(--line);border-ra
 .rec-name{font-weight:600;flex:1}
 .rec-score{font-size:11px;color:var(--muted)}
 .rec-lever{font-size:11px;color:#5b5147;font-style:italic;padding-left:30px}
+.rec-name.cur{color:var(--fire)}
 .badge{display:inline-block;font-size:10px;font-weight:700;padding:1px 5px;border-radius:4px;margin-left:3px}
 .badge-h{background:var(--flagbg);color:var(--flag)}.badge-c{background:#eaf2fa;color:var(--light)}
-
-/* ── Co-spike ── */
 .co-year{display:inline-block;background:#ffe8cc;border:1px solid #f0c060;border-radius:4px;padding:1px 7px;font-size:12px;margin:2px}
 
-/* ── Chatbot ── */
-.chat-container{display:flex;flex-direction:column;height:calc(100vh - 280px);min-height:400px;max-height:700px}
+/* Notes + copy */
+.notes-area{width:100%;min-height:80px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font:13px inherit;resize:vertical;background:#fff;outline:none}
+.notes-area:focus{border-color:var(--fire)}
+.copy-btn{display:inline-flex;align-items:center;gap:6px;background:var(--ok);color:#fff;border:none;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer;margin-top:10px}
+.copy-btn:hover{background:#2e6838}
+.copy-confirm{font-size:12px;color:var(--ok);margin-left:10px;display:none}
+
+/* Chatbot */
+.chat-container{display:flex;flex-direction:column;height:380px}
 .api-key-bar{background:#fdf8f0;border:1px solid #e8d8b8;border-radius:8px;padding:10px 14px;margin-bottom:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12.5px}
-.api-key-bar input{flex:1;min-width:200px;padding:6px 10px;border:1px solid var(--line);border-radius:6px;font-size:12.5px;font-family:inherit;background:#fff}
-.api-key-bar .status{font-size:11.5px;color:var(--muted)}
-.api-key-bar .status.ok{color:var(--ok)}.api-key-bar .status.err{color:var(--flag)}
-.chat-messages{flex:1;overflow-y:auto;padding:4px 0;display:flex;flex-direction:column;gap:12px}
+.api-key-bar input{flex:1;min-width:180px;padding:6px 10px;border:1px solid var(--line);border-radius:6px;font-size:12.5px;font-family:inherit;background:#fff}
+.api-status{font-size:11.5px;color:var(--muted)}.api-status.ok{color:var(--ok)}.api-status.err{color:var(--flag)}
+.chat-messages{flex:1;overflow-y:auto;padding:4px 0;display:flex;flex-direction:column;gap:10px}
 .cmsg{display:flex;gap:9px;max-width:90%}
-.cmsg.bot{align-self:flex-start}
-.cmsg.user{align-self:flex-end;flex-direction:row-reverse}
-.cavatar{width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px}
-.cmsg.bot .cavatar{background:#fde3dd}
-.cmsg.user .cavatar{background:#1f3a52;color:#fff;font-size:11px;font-weight:700}
-.cbubble{padding:10px 14px;border-radius:4px 12px 12px 12px;font-size:13px;line-height:1.6;max-width:600px}
+.cmsg.bot{align-self:flex-start}.cmsg.user{align-self:flex-end;flex-direction:row-reverse}
+.cavatar{width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px}
+.cmsg.bot .cavatar{background:#fde3dd}.cmsg.user .cavatar{background:#1f3a52;color:#fff;font-size:11px;font-weight:700}
+.cbubble{padding:9px 13px;border-radius:4px 12px 12px 12px;font-size:13px;line-height:1.6}
 .cmsg.bot .cbubble{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}
 .cmsg.user .cbubble{background:#1f3a52;color:#fff;border-radius:12px 4px 12px 12px}
-.cbubble b{color:inherit}
 .cbubble .cnote{font-size:11px;color:var(--muted);border-top:1px dashed var(--line);margin-top:7px;padding-top:5px}
-.chat-chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
-.chip{background:#fff;border:1px solid var(--line);border-radius:16px;padding:5px 12px;font-size:12px;color:#5b5147;cursor:pointer;transition:.12s}
+.chat-chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip{background:#fff;border:1px solid var(--line);border-radius:16px;padding:4px 11px;font-size:12px;color:#5b5147;cursor:pointer;transition:.12s}
 .chip:hover{border-color:var(--fire);color:var(--fire)}
-.chat-input-row{display:flex;gap:8px;align-items:flex-end;margin-top:10px;border-top:1px solid var(--line);padding-top:10px}
-#chat-q{flex:1;border:1px solid var(--line);border-radius:20px;padding:9px 14px;font:13.5px inherit;resize:none;outline:none;max-height:100px;background:#fff}
+.chat-input-row{display:flex;gap:8px;align-items:flex-end;margin-top:8px;border-top:1px solid var(--line);padding-top:8px}
+#chat-q{flex:1;border:1px solid var(--line);border-radius:20px;padding:9px 14px;font:13px inherit;resize:none;outline:none;max-height:80px;background:#fff}
 #chat-q:focus{border-color:var(--fire)}
-#chat-send{background:var(--fire);color:#fff;border:none;border-radius:50%;width:38px;height:38px;font-size:17px;cursor:pointer;flex-shrink:0;transition:background .12s}
-#chat-send:hover{background:#a93226}
-.chat-region-bar{font-size:12px;color:var(--muted);margin-bottom:8px}
-.chat-region-bar select{border:1px solid var(--line);border-radius:6px;padding:3px 8px;font:12px inherit;margin-left:6px;background:#fff}
-.typing{display:flex;align-items:center;gap:4px;padding:10px 14px;background:var(--card);border:1px solid var(--line);border-radius:4px 12px 12px 12px;width:fit-content}
+#chat-send{background:var(--fire);color:#fff;border:none;border-radius:50%;width:36px;height:36px;font-size:16px;cursor:pointer;flex-shrink:0}
+.typing{display:flex;align-items:center;gap:4px;padding:9px 13px;background:var(--card);border:1px solid var(--line);border-radius:4px 12px 12px 12px;width:fit-content}
 .typing span{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:bounce .9s infinite}
 .typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
 @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
 
-/* ── Override log ── */
+/* Override log */
 .log-table{width:100%;border-collapse:collapse;font-size:12px}
 .log-table th{text-align:left;border-bottom:1px solid var(--line);padding:5px 8px;color:var(--muted);font-size:10.5px;text-transform:uppercase}
 .log-table td{padding:5px 8px;border-bottom:1px solid #f0ece4;vertical-align:top}
 .ovr-form input,.ovr-form textarea{width:100%;padding:6px 10px;border:1px solid var(--line);border-radius:6px;font-size:13px;font-family:inherit;background:#fff;margin-bottom:8px}
-.ovr-form textarea{min-height:60px;resize:vertical}
+.ovr-form textarea{min-height:55px;resize:vertical}
 .alert{padding:8px 12px;border-radius:6px;font-size:12.5px;margin-top:8px}
 .alert.ok{background:var(--okbg);color:var(--ok)}.alert.err{background:var(--flagbg);color:var(--flag)}
+.chart-wrap{position:relative;height:200px;margin-top:10px}
 </style>
 </head>
 <body>
@@ -208,175 +211,136 @@ select.fw{padding:6px 10px;font-size:13px;border:1px solid var(--line);border-ra
   <span class="warn" id="flag-badge"></span>
 </div>
 
-<div class="headline">
-  <h2 id="hl-title"></h2>
-  <p id="hl-text"></p>
-</div>
-
-<!-- Province Scorecard -->
-<h3 class="sect">10 Forest Areas — Ha Ratio vs 20-yr Mean (click to explore)</h3>
-<div class="scorecard" id="scorecard"></div>
-
-<!-- Tabs -->
+<!-- 3 Tabs -->
 <div class="tabs">
-  <div class="tab on" data-tab="overview">Overview</div>
-  <div class="tab" data-tab="trend">Annual Trend</div>
-  <div class="tab" data-tab="recommend">Recommend</div>
-  <div class="tab" data-tab="cross">Cross-Region</div>
-  <div class="tab" data-tab="anomaly">Anomaly</div>
-  <div class="tab" data-tab="map">🗺 Map</div>
-  <div class="tab" data-tab="assistant">🤖 Assistant</div>
-  <div class="tab" data-tab="log">Override Log</div>
-</div>
-
-<!-- OVERVIEW -->
-<div class="tabpanel on" id="tab-overview">
-  <div class="detail" id="detail-panel"></div>
-</div>
-
-<!-- TREND -->
-<div class="tabpanel" id="tab-trend">
-  <div class="card">
-    <h3 class="sect">Province-wide Annual Trend · 2006–2025</h3>
-    <p style="font-size:12px;color:var(--muted);margin-bottom:4px">Hectares burned (bars, left) and fire count (line, right). Dashed line = 2012 cause reclassification.</p>
-    <div class="chart-wrap-tall"><canvas id="trend-chart"></canvas></div>
-    <div class="note2012">⚠ 2012: Agriculture &amp; Government split out of Resident/Other Industry — cause trends crossing this year are not directly comparable.</div>
-    <div style="margin-top:14px">
-      <h3 class="sect">Count vs. Area — The Distribution Story</h3>
-      <p id="dist-story" style="font-size:13px;line-height:1.6;color:#5b5147"></p>
-    </div>
+  <div class="tab on" data-tab="where">
+    📍 Where
+    <span class="tab-sub">Which areas need attention?</span>
   </div>
-  <div class="card" style="margin-top:14px">
-    <h3 class="sect">Per-Region Annual Hectares vs 20-yr Mean</h3>
-    <select class="fw" id="region-trend-sel"></select>
-    <div class="chart-wrap"><canvas id="region-trend-chart"></canvas></div>
+  <div class="tab" data-tab="why">
+    🔍 Why
+    <span class="tab-sub">What's driving it?</span>
+  </div>
+  <div class="tab" data-tab="decide">
+    ✅ Decide
+    <span class="tab-sub">What should I recommend?</span>
   </div>
 </div>
 
-<!-- RECOMMEND -->
-<div class="tabpanel" id="tab-recommend">
+<!-- ══ WHERE ══════════════════════════════════════════════════════════════ -->
+<div class="tabpanel on" id="tab-where">
   <div class="card" style="margin-bottom:14px">
-    <h3 class="sect">Recommendation Engine</h3>
-    <p style="font-size:13px;color:#5b5147;margin-bottom:12px">Scores all 10 areas on: hectares ratio (40%), count ratio (15%), cause lever (30%), response lag (15%).</p>
-    <button class="skill-btn" id="run-rec-btn">⚡ Generate Ranked Lists</button>
+    <h3 class="sect">10 Forest Areas — Ha Ratio vs 20-yr Mean
+      <span class="tip-wrap"><i class="tip-icon" data-tip="Ha ratio = recent 3-yr mean annual ha ÷ 20-yr mean annual ha. Flagged (▲) when ≥1.3×. Click any tile to drill into that area.">?</i></span>
+    </h3>
+    <div class="scorecard" id="scorecard"></div>
+    <div class="nullnote" id="where-summary"></div>
   </div>
-  <div id="rec-out" style="display:none">
-    <div class="rec-grid">
-      <div class="card"><h3 class="sect">Deployment Priority — Initial Attack / Air Tanker</h3><ul class="rec-list" id="deploy-list"></ul></div>
-      <div class="card"><h3 class="sect">Prevention Priority — Bans · Education · Restrictions</h3><ul class="rec-list" id="prevent-list"></ul></div>
-    </div>
-    <div class="nullnote" style="margin-top:12px">FPA-only. The dashboard surfaces the signal — the analyst makes and owns the recommendation. Any change must be logged in Override Log.</div>
-  </div>
-</div>
-
-<!-- CROSS-REGION -->
-<div class="tabpanel" id="tab-cross">
   <div class="card">
-    <h3 class="sect">Cross-Region Co-Spike Detection</h3>
-    <p style="font-size:13px;color:#5b5147;margin-bottom:12px">Are two areas spiking together systematically, or by coincidence?</p>
-    <div style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-bottom:12px">
-      <div><label style="font-size:11.5px;color:var(--muted);display:block;margin-bottom:4px">Region A</label><select class="fw" id="cross-a" style="margin:0"></select></div>
-      <div><label style="font-size:11.5px;color:var(--muted);display:block;margin-bottom:4px">Region B</label><select class="fw" id="cross-b" style="margin:0"></select></div>
-      <button class="skill-btn" id="run-cross-btn">🔍 Analyse</button>
-    </div>
-    <div id="cross-out" style="display:none">
-      <div class="card" style="background:#fdf9f5">
-        <p id="cross-interp" style="font-size:13.5px;line-height:1.65;margin-bottom:12px"></p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12.5px">
-          <div><div style="font-size:10.5px;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em">Co-spike years</div><div id="cross-cospikes"></div></div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-            <div><div style="font-size:10.5px;color:var(--muted);margin-bottom:4px">Spikes — A</div><div id="cross-sa" style="font-size:12px"></div></div>
-            <div><div style="font-size:10.5px;color:var(--muted);margin-bottom:4px">Spikes — B</div><div id="cross-sb" style="font-size:12px"></div></div>
-          </div>
-        </div>
-        <div class="nullnote" style="margin-top:10px">Associative — no causal claim. Co-spike = region annual ha ≥ 1.3× its own 20-yr mean.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ANOMALY -->
-<div class="tabpanel" id="tab-anomaly">
-  <div class="card">
-    <h3 class="sect">Anomaly Characterisation</h3>
-    <p style="font-size:13px;color:#5b5147;margin-bottom:12px">Reads across fire count, hectares, and driver regions simultaneously for any year.</p>
-    <div style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-bottom:12px">
-      <div><label style="font-size:11.5px;color:var(--muted);display:block;margin-bottom:4px">Year</label><select class="fw" id="anomaly-year" style="margin:0"></select></div>
-      <button class="skill-btn" id="run-anomaly-btn">📊 Characterise</button>
-    </div>
-    <div id="anomaly-out" style="display:none">
-      <div class="card" style="background:#fdf9f5">
-        <p id="anomaly-char" style="font-size:13.5px;line-height:1.65;margin-bottom:12px"></p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <div><div style="font-size:10.5px;color:var(--muted);margin-bottom:6px;text-transform:uppercase">Driver regions (≥2× own mean)</div><div id="anomaly-drivers" style="font-size:13px"></div></div>
-          <div><div style="font-size:10.5px;color:var(--muted);margin-bottom:6px;text-transform:uppercase">Ambient (above mean)</div><div id="anomaly-ambient" style="font-size:13px"></div></div>
-        </div>
-        <div class="nullnote" style="margin-top:10px">FPA-only. Associative — no causal claim.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- MAP -->
-<div class="tabpanel" id="tab-map">
-  <div class="card">
-    <h3 class="sect">Alberta FPA — Regional Bubble Map</h3>
-    <p style="font-size:12px;color:var(--muted);margin-bottom:10px">Circle size = total ha burned 2006–2025 · Color = ha ratio vs 20-yr mean · Click any circle to open region detail</p>
+    <h3 class="sect">Alberta FPA — Regional Bubble Map
+      <span class="tip-wrap"><i class="tip-icon" data-tip="Circle size = total ha burned 2006–2025. Color = ha ratio vs 20-yr mean. Click a circle for details, then open the Why tab.">?</i></span>
+    </h3>
     <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px;font-size:12px">
-      <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:50%;background:#c0392b;display:inline-block"></span> ≥4× norm</span>
-      <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:50%;background:#e06050;display:inline-block"></span> 2–4×</span>
-      <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:50%;background:#f0a090;display:inline-block"></span> 1.3–2×</span>
-      <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:50%;background:#f0c060;display:inline-block"></span> 0.7–1.3×</span>
-      <span style="display:flex;align-items:center;gap:4px"><span style="width:12px;height:12px;border-radius:50%;background:#3a7d44;display:inline-block"></span> below norm</span>
-      <span style="color:var(--muted);margin-left:auto">FPA-only · basemap © OpenStreetMap contributors</span>
+      <span style="display:flex;align-items:center;gap:4px"><span style="width:11px;height:11px;border-radius:50%;background:#c0392b;display:inline-block"></span>≥4× norm</span>
+      <span style="display:flex;align-items:center;gap:4px"><span style="width:11px;height:11px;border-radius:50%;background:#e06050;display:inline-block"></span>2–4×</span>
+      <span style="display:flex;align-items:center;gap:4px"><span style="width:11px;height:11px;border-radius:50%;background:#f0a090;display:inline-block"></span>1.3–2×</span>
+      <span style="display:flex;align-items:center;gap:4px"><span style="width:11px;height:11px;border-radius:50%;background:#f0c060;display:inline-block"></span>0.7–1.3×</span>
+      <span style="display:flex;align-items:center;gap:4px"><span style="width:11px;height:11px;border-radius:50%;background:#3a7d44;display:inline-block"></span>below norm</span>
+      <span style="color:var(--muted);margin-left:auto;font-size:11px">© OpenStreetMap contributors</span>
     </div>
-    <div id="map-container" style="height:520px;border-radius:8px;overflow:hidden;border:1px solid var(--line)"></div>
-    <div class="nullnote" style="margin-top:10px">Regional centroids — not per-fire locations. Decision is regional (which of the 10 areas), not per-fire.</div>
+    <div id="map-container"></div>
+    <div style="font-size:11.5px;color:var(--muted);margin-top:8px">Regional centroids — not per-fire locations. Click a circle to select, then use the <b>Why</b> or <b>Decide</b> tabs.</div>
   </div>
 </div>
 
-<!-- ASSISTANT -->
-<div class="tabpanel" id="tab-assistant">
-  <div class="card">
-    <div class="api-key-bar">
-      <div style="font-weight:600;font-size:13px">🤖 Analyst Assistant</div>
-      <div style="flex:1;min-width:200px">
-        <input type="password" id="api-key-input" placeholder="Paste your Claude API key (sk-ant-…) — stored only in your browser">
-      </div>
-      <button class="skill-btn sec" id="api-key-save" style="padding:5px 12px;font-size:12px">Save Key</button>
-      <div class="status" id="api-key-status">No key — using rule-based fallback</div>
-    </div>
-    <div class="chat-region-bar">
-      Asking about: <select id="chat-region-sel"></select>
-    </div>
-    <div class="chat-container">
-      <div class="chat-messages" id="chat-messages"></div>
-      <div class="chat-input-row">
-        <textarea id="chat-q" rows="1" placeholder="Ask about any forest area…"></textarea>
-        <button id="chat-send">↑</button>
-      </div>
-    </div>
+<!-- ══ WHY ════════════════════════════════════════════════════════════════ -->
+<div class="tabpanel" id="tab-why">
+  <div id="why-panel">
+    <div style="color:var(--muted);padding:30px 0;text-align:center;font-size:13px">← Select a region from the <b>Where</b> tab to drill in</div>
   </div>
 </div>
 
-<!-- OVERRIDE LOG -->
-<div class="tabpanel" id="tab-log">
+<!-- ══ DECIDE ═════════════════════════════════════════════════════════════ -->
+<div class="tabpanel" id="tab-decide">
+
+  <!-- Ranked lists -->
+  <div class="rec-score-grid" id="rec-grid">
+    <div class="card"><h3 class="sect">Deployment Priority — Initial Attack / Air Tanker
+      <span class="tip-wrap"><i class="tip-icon" data-tip="Scores: ha ratio 40% + count ratio 15% + cause lever 30% + response lag 15%. Capped at 8× to prevent escape years from dominating. Analyst owns the final call.">?</i></span>
+    </h3><ul class="rec-list" id="deploy-list"></ul></div>
+    <div class="card"><h3 class="sect">Prevention Priority — Bans · Education · Restrictions
+      <span class="tip-wrap"><i class="tip-icon" data-tip="Same scoring but cause lever modifier favours human-dominated areas (prevention). A lightning-dominated area scores lower on prevention even if it has a high ha ratio.">?</i></span>
+    </h3><ul class="rec-list" id="prevent-list"></ul></div>
+  </div>
+
+  <!-- Selected region brief -->
+  <div class="rec-card" id="rec-region-card">
+    <div style="color:var(--muted);font-size:13px">← Select a region from <b>Where</b> to see its recommendation card and generate a Director brief.</div>
+  </div>
+
+  <!-- Analyst notes + copy -->
   <div class="card" style="margin-bottom:14px">
-    <h3 class="sect">Override Log — Immutable Audit Trail</h3>
-    <p style="font-size:13px;color:#5b5147;margin-bottom:12px">Every change to a flag, threshold, or recommendation must be logged here. Stored in your browser.</p>
-    <div id="log-entries"></div>
-    <hr style="border:none;border-top:1px solid var(--line);margin:16px 0">
-    <h3 class="sect">Add Entry</h3>
-    <div class="ovr-form">
-      <input type="text" id="log-analyst" placeholder="Analyst name *">
-      <input type="text" id="log-session" placeholder="Session / date *">
-      <input type="text" id="log-field" placeholder="Changed field (e.g. flag_h High Level, threshold 1.3×→1.5×) *">
-      <input type="text" id="log-original" placeholder="Original flag / value *">
-      <textarea id="log-reason" placeholder="Reason — minimum 10 characters *"></textarea>
-      <button class="skill-btn" id="log-submit">Submit Entry</button>
-      <div id="log-alert" style="display:none"></div>
+    <h3 class="sect">Analyst Notes</h3>
+    <textarea class="notes-area" id="analyst-notes" placeholder="Add your planning notes here — rationale, caveats, local knowledge…"></textarea>
+    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:8px">
+      <button class="copy-btn" id="copy-brief-btn">📋 Copy Director Brief to Clipboard</button>
+      <span class="copy-confirm" id="copy-confirm">✓ Copied!</span>
+      <span style="font-size:11.5px;color:var(--muted)">Paste into your briefing email or Word doc</span>
     </div>
   </div>
+
+  <!-- Override log (collapsed) -->
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleSection('override-body',this)">
+      <h3 class="sect" style="margin:0">Override Log — Immutable Audit Trail
+        <span class="tip-wrap"><i class="tip-icon" data-tip="Every change to a flag or threshold must be logged here BEFORE it counts. Entries are permanent. No log, no change.">?</i></span>
+      </h3>
+      <span style="font-size:12px;color:var(--muted)" id="override-toggle">▼ expand</span>
+    </div>
+    <div id="override-body" style="display:none;margin-top:14px">
+      <div id="log-entries"></div>
+      <hr style="border:none;border-top:1px solid var(--line);margin:14px 0">
+      <h3 class="sect">Add Entry</h3>
+      <div class="ovr-form">
+        <input type="text" id="log-analyst" placeholder="Analyst name *">
+        <input type="text" id="log-session" placeholder="Session / date *">
+        <input type="text" id="log-field" placeholder="Changed field (e.g. flag_h High Level, threshold 1.3×→1.5×) *">
+        <input type="text" id="log-original" placeholder="Original flag / value *">
+        <textarea id="log-reason" placeholder="Reason — minimum 10 characters *"></textarea>
+        <button class="skill-btn" id="log-submit">Submit Entry</button>
+        <div id="log-alert" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Analyst Assistant (collapsed) -->
+  <div class="card" style="margin-top:14px">
+    <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleSection('chat-body',this)">
+      <h3 class="sect" style="margin:0">🤖 Analyst Assistant
+        <span class="tip-wrap"><i class="tip-icon" data-tip="Answers data questions grounded in the FPA record. Add a Claude API key for open-ended queries — falls back to rule-based answers without one.">?</i></span>
+      </h3>
+      <span style="font-size:12px;color:var(--muted)" id="chat-toggle">▼ expand</span>
+    </div>
+    <div id="chat-body" style="display:none;margin-top:14px">
+      <div class="api-key-bar">
+        <input type="password" id="api-key-input" placeholder="Paste Claude API key (sk-ant-…) — stored in browser only">
+        <button class="skill-btn sec" id="api-key-save" style="padding:5px 12px;font-size:12px">Save Key</button>
+        <div class="api-status" id="api-key-status">No key — rule-based fallback</div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:8px">
+        Asking about: <select id="chat-region-sel" style="border:1px solid var(--line);border-radius:6px;padding:3px 8px;font:12px inherit;margin-left:4px;background:#fff"></select>
+      </div>
+      <div class="chat-container">
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input-row">
+          <textarea id="chat-q" rows="1" placeholder="Ask about any forest area…"></textarea>
+          <button id="chat-send">↑</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nullnote" style="margin-top:14px">FPA-only. The dashboard surfaces the signal — the analyst makes and owns the recommendation. Any flag override must be logged above.</div>
 </div>
 
 </div><!-- .wrap -->
@@ -392,7 +356,7 @@ const LEVER_LBL = {detection:'Detection & suppression reach',prevention:'Prevent
 const LEVER_ICON = {detection:'⚡',prevention:'🚫',both:'⚡🚫'};
 const tierCls = f => f>=90?'A':f>=60?'B':f>=30?'C':'D';
 const tierLbl = f => ({A:'High',B:'Moderate',C:'Provisional',D:'Cannot assess'})[tierCls(f)];
-
+const NONE_CAUSES = new Set(['Lightning','Undetermined','Under Investigation','Restart']);
 const CC = {Lightning:'#2f6fa8',Resident:'#d98324',Incendiary:'#a93226',Recreation:'#5a9e6f',
   'Power Line Industry':'#7b5ea7','Agriculture Industry':'#c07030','Forest Industry':'#4a8a6f',
   'Oil & Gas Industry':'#8a6030',Undetermined:'#b3a896','Under Investigation':'#c9bdac',
@@ -407,8 +371,21 @@ function ratioBg(r){
   if(r>=0.7) return '#fdfcf8';
   return '#f4faf5';
 }
+function ratioColor(r){
+  if(r>=4) return '#c0392b';
+  if(r>=2) return '#e06050';
+  if(r>=1.3) return '#f0a090';
+  if(r>=0.7) return '#f0c060';
+  return '#3a7d44';
+}
+function toggleSection(bodyId, btn){
+  const body=document.getElementById(bodyId);
+  const tog=btn.querySelector('[id$="-toggle"]')||btn.nextElementSibling;
+  if(body.style.display==='none'){body.style.display='block';if(tog)tog.textContent='▲ collapse';}
+  else{body.style.display='none';if(tog)tog.textContent='▼ expand';}
+}
 
-// ── Header ────────────────────────────────────────────────────────────────
+// ── Header stats ──────────────────────────────────────────────────────────
 (function(){
   const p=DATA.province;
   document.getElementById('hdr-fires').textContent = fmtN(p.total_fires);
@@ -416,15 +393,12 @@ function ratioBg(r){
   const nH = Object.values(DATA.regions).filter(r=>r.flag_h).length;
   document.getElementById('hdr-flag').textContent = nH+'/10';
   document.getElementById('flag-badge').textContent = `⚠ ${nH} of 10 areas flagged on hectares`;
-  document.getElementById('hl-title').innerHTML =
-    `<b>${nH} of 10</b> forest areas burned ≥1.3× their 20-yr mean — the crisis is in <b>area burned</b>, not fire count`;
-  document.getElementById('hl-text').innerHTML =
-    `2023–2025 mean annual: ${nH} areas above norm on hectares, 0 above norm on fire count. `+
-    `Top 1% of fires account for ~${p.top1_share}% of all hectares burned. `+
-    `<em>FPA-only; cost and forecast out of scope.</em>`;
+  document.getElementById('where-summary').textContent =
+    `${nH} of 10 areas flagged (ha ratio ≥1.3×) — 0 flagged on fire count. The crisis is in area burned, not fire frequency. FPA-only; cost and forecast out of scope.`;
 })();
 
 // ── Scorecard ─────────────────────────────────────────────────────────────
+let currentRegion = 'Grande Prairie';
 (function buildScorecard(){
   const sc = document.getElementById('scorecard');
   const sorted = Object.entries(DATA.regions).sort((a,b)=>b[1].ratio_h-a[1].ratio_h);
@@ -435,87 +409,103 @@ function ratioBg(r){
     el.style.background=ratioBg(rd.ratio_h);
     el.dataset.region=name;
     el.innerHTML=`
-      <div class="sc-name">${name}${rd.flag_h?'<span class="badge badge-h" style="margin-left:4px;font-size:9px">Ha↑</span>':''}</div>
+      <div class="sc-name">${name}${rd.flag_h?'<span class="badge badge-h" style="margin-left:4px;font-size:9px">▲</span>':''}</div>
       <div class="sc-ratio">${rd.ratio_h.toFixed(2)}×</div>
       <div class="sc-label">ha ratio · ${fmtHa(rd.total_ha)}</div>
       <div class="sc-lever" style="background:${lever==='detection'?'#eaf2fa':lever==='prevention'?'#eef5ee':'#fdf3e7'};color:${lever==='detection'?'#2f6fa8':lever==='prevention'?'#3a7d44':'#9a6020'}">${LEVER_ICON[lever]} ${lever}</div>
       <div class="sc-bar"></div>`;
-    el.addEventListener('click',()=>selectRegion(name));
+    el.addEventListener('click',()=>{
+      selectRegion(name);
+      document.querySelector('[data-tab="why"]').click();
+    });
     sc.appendChild(el);
   });
 })();
 
-// ── Region select ─────────────────────────────────────────────────────────
+// selectRegion is called at bottom of script after depList/preList are ready
 function selectRegion(name){
+  currentRegion = name;
   document.querySelectorAll('.sc-tile').forEach(el=>el.classList.toggle('sel',el.dataset.region===name));
-  // sync chat selector
   const cs=document.getElementById('chat-region-sel'); if(cs) cs.value=name;
-  renderDetail(name);
+  renderWhy(name);
+  renderDecideCard(name);
 }
+// selectRegion called after scoring — see bottom of script
 
-function renderDetail(name){
+// ── WHY panel ─────────────────────────────────────────────────────────────
+let trendChartInstance = null;
+function renderWhy(name){
   const rd=DATA.regions[name], p=DATA.province;
   const lever=getLever(rd);
   const acFill=(100-rd.ac_null).toFixed(1), tcFill=(100-rd.tc_null).toFixed(1);
   const escapes=Object.entries(rd.annual_ha).filter(([,ha])=>ha>=rd.mean_h*2).sort((a,b)=>b[1]-a[1]).slice(0,5);
 
-  // Sparkline for annual ha
+  // Cause buckets
+  const lightPct = rd.lightning_pct;
+  const humanPct = rd.human_pct;
+  const otherPct = +(100 - lightPct - humanPct).toFixed(1);
+
+  // Sparkline
   const haVals=Object.values(rd.annual_ha), haMax=Math.max(...haVals);
-  const spark=haVals.map(v=>`<div class="bar" style="height:${Math.max(4,v/haMax*32)}px;background:${v>=rd.mean_h*1.3?'var(--fire)':'var(--faint)'}"></div>`).join('');
+  const spark=haVals.map(v=>`<div class="bar" style="height:${Math.max(4,v/haMax*34)}px;background:${v>=rd.mean_h*1.3?'var(--fire)':'var(--faint)'}"></div>`).join('');
 
-  // Stacked cause bar
-  const stackBars=rd.causes.map(c=>`<div style="width:${c.pct}%;background:${CC[c.cause]||'#b3a896'}" title="${c.cause}: ${c.pct}% (${fmtN(c.n)})"></div>`).join('');
-  const legendItems=rd.causes.slice(0,7).map(c=>`<span title="${c.pct}% (${fmtN(c.n)})"><span style="background:${CC[c.cause]||'#b3a896'}"></span>${c.cause} ${c.pct}%</span>`).join('');
-
-  // Size visual — log scale line from 0.01 to max_ha, marks at median and p90
+  // Size visual (log scale)
   const logMin=Math.log10(0.01), logMax=Math.log10(Math.max(rd.p90_ha*5,100));
-  const pos = v => ((Math.log10(Math.max(v,0.001))-logMin)/(logMax-logMin)*100).toFixed(1);
-  const medPos=pos(rd.median_ha), p90Pos=pos(rd.p90_ha);
+  const pos=v=>((Math.log10(Math.max(v,0.001))-logMin)/(logMax-logMin)*100).toFixed(1);
 
-  // Gauge for ha ratio
+  // Gauge
   const gaugeMax=8, gaugePct=Math.min(rd.ratio_h/gaugeMax*100,100);
   const threshPct=(1.3/gaugeMax*100).toFixed(1);
   const gaugeColor=rd.ratio_h>=1.3?'var(--fire)':rd.ratio_h<=0.7?'var(--ok)':'var(--human)';
 
-  document.getElementById('detail-panel').innerHTML=`
-    <h2>${name}
-      ${rd.flag_h?`<span class="badge badge-h" style="font-size:12px">Ha ${rd.ratio_h.toFixed(2)}× — above norm</span>`:''}
-      ${rd.flag_c?`<span class="badge badge-c" style="font-size:12px">Count ${rd.ratio_c.toFixed(2)}× — above norm</span>`:''}
-    </h2>
-    <div class="loc">${fmtN(rd.count)} fires 2006–2025 · ${rd.pct}% of FPA total (${fmtN(p.total_fires)}) · ${LEVER_LBL[lever]}</div>
+  // Detail stacked bars for expandable
+  const detailBars=rd.causes.map(c=>`<div style="width:${c.pct}%;background:${CC[c.cause]||'#b3a896'}" title="${c.cause}: ${c.pct}% (${fmtN(c.n)})"></div>`).join('');
+  const detailLegend=rd.causes.slice(0,8).map(c=>`<span title="${c.pct}% (${fmtN(c.n)})"><span style="background:${CC[c.cause]||'#b3a896'}"></span>${c.cause} ${c.pct}%</span>`).join('');
 
+  const panelEl = document.getElementById('why-panel');
+  panelEl.innerHTML = `
+    <!-- Lever banner -->
+    <div class="lever-banner lever-${lever}" style="margin-bottom:14px">
+      <div class="lever-icon">${LEVER_ICON[lever]}</div>
+      <div>
+        <div class="lever-title">${name} — Planning lever: ${lever==='both'?'Both Detection &amp; Prevention':lever==='detection'?'Detection / Suppression':'Prevention'}</div>
+        <div class="lever-desc">${LEVER_LBL[lever]}. Ha ratio <b>${rd.ratio_h.toFixed(2)}×</b>${rd.flag_h?' — above norm (flagged)':' — within norm'}.</div>
+      </div>
+    </div>
+
+    <!-- KPI row -->
     <div class="kpi-row">
       <div class="kpi ${rd.flag_h?'flagged':''}">
         <div class="v">${rd.ratio_h.toFixed(2)}×</div>
-        <div class="l">Ha ratio</div>
-        <div class="n">Rec ${fmtHa(rd.rec_h)} / Mean ${fmtHa(rd.mean_h)}</div>
+        <div class="l">Ha ratio <i class="tip-icon" data-tip="Recent 3-yr mean ha ÷ 20-yr mean annual ha. Flagged when ≥1.3×. Rec=${fmtHa(rd.rec_h)}/yr vs Mean=${fmtHa(rd.mean_h)}/yr.">?</i></div>
+        <div class="n">${rd.flag_h?'▲ ABOVE NORM':'within norm'}</div>
       </div>
       <div class="kpi ${rd.flag_c?'flagged':''}">
         <div class="v">${rd.ratio_c.toFixed(2)}×</div>
-        <div class="l">Count ratio</div>
-        <div class="n">Rec ${Math.round(rd.rec_c)}/yr / Mean ${Math.round(rd.mean_c)}/yr</div>
+        <div class="l">Count ratio <i class="tip-icon" data-tip="Recent 3-yr mean annual fire count ÷ 20-yr mean. Flagged when ≥1.3×. Rec=${Math.round(rd.rec_c)}/yr vs Mean=${Math.round(rd.mean_c)}/yr.">?</i></div>
+        <div class="n">${rd.flag_c?'▲ ABOVE NORM':'within norm'}</div>
       </div>
       <div class="kpi">
-        <div class="v">${fmtHa(rd.total_ha)}</div>
-        <div class="l">Total ha (FPA)</div>
-        <div class="n">${fmtN(rd.count)} fires</div>
-      </div>
-      <div class="kpi">
-        <div class="v">${rd.median_ha}</div>
-        <div class="l">Median ha</div>
+        <div class="v">${rd.median_ha} ha</div>
+        <div class="l">Median fire <i class="tip-icon" data-tip="Median is the right central measure — 50% of fires are smaller. A bare mean would be misleading due to extreme right-skew. p90 = ${rd.p90_ha} ha.">?</i></div>
         <div class="n">p90: ${rd.p90_ha} ha</div>
       </div>
       <div class="kpi">
+        <div class="v">${fmtHa(rd.total_ha)}</div>
+        <div class="l">Total ha (FPA) <i class="tip-icon" data-tip="Cumulative area burned 2006–2025. FPA-only — excludes Mutual Aid fires outside the Forest Protection Area.">?</i></div>
+        <div class="n">${fmtN(rd.count)} fires (${rd.pct}%)</div>
+      </div>
+      <div class="kpi">
         <div class="v">${rd.lag_med}h</div>
-        <div class="l">Median lag</div>
+        <div class="l">Median lag <i class="tip-icon" data-tip="REPORTED_DATE → FIRE_FIGHTING_START_DATE. Covers ${rd.lag_cov.toFixed(0)}% of fires — ${(100-rd.lag_cov).toFixed(0)}% gap disclosed.">?</i></div>
         <div class="n">${rd.lag_cov.toFixed(0)}% coverage</div>
       </div>
     </div>
 
     <!-- Ha ratio gauge -->
-    <div class="gauge-wrap">
+    <div style="margin-bottom:16px">
       <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px">
-        <span>Ha ratio vs 20-yr mean</span><span>${rd.ratio_h.toFixed(2)}× (threshold 1.3×)</span>
+        <span>Ha ratio vs 20-yr mean baseline</span><span>${rd.ratio_h.toFixed(2)}× · flag threshold 1.3×</span>
       </div>
       <div class="gauge-track">
         <div class="gauge-fill" style="width:${gaugePct}%;background:${gaugeColor}"></div>
@@ -524,61 +514,107 @@ function renderDetail(name){
       <div class="gauge-labels"><span>0×</span><span>1.3× flag</span><span>8×</span></div>
     </div>
 
-    <!-- Annual sparkline -->
-    <div style="margin-bottom:14px">
-      <div style="font-size:11px;color:var(--muted);margin-bottom:4px">Annual hectares 2006–2025 (red = above norm)</div>
-      <div class="sparkline">${spark}</div>
-      <div style="display:flex;justify-content:space-between;font-size:9.5px;color:var(--faint)"><span>2006</span><span>2025</span></div>
-    </div>
-
-    <!-- Cause mix stacked bar -->
-    <div style="margin-bottom:14px">
-      <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px">
-        <span>Cause mix — GENERAL_CAUSE (N=${fmtN(rd.count)}, fully populated)</span>
-        <span>⚡ ${rd.lightning_pct}% lightning · 👤 ${rd.human_pct}% human-related</span>
+    <!-- Cause section (2-level) -->
+    <div class="card" style="margin-bottom:14px">
+      <h3 class="sect">Cause Mix
+        <span class="tip-wrap"><i class="tip-icon" data-tip="GENERAL_CAUSE field — fully populated (N=${fmtN(rd.count)}). 'Human-related' = all except Lightning, Undetermined, Under Investigation, Restart.">?</i></span>
+      </h3>
+      <!-- Top-level 3-bucket bar -->
+      <div class="cause-top-bar">
+        <div style="width:${lightPct}%;background:#2f6fa8;min-width:${lightPct>5?0:0}px" title="Lightning: ${lightPct}% (${fmtN(rd.causes.find(c=>c.cause==='Lightning')?.n||0)})">
+          ${lightPct>=8?`⚡ ${lightPct}%`:''}
+        </div>
+        <div style="width:${humanPct}%;background:#d98324" title="Human-related: ${humanPct}%">
+          ${humanPct>=8?`👤 ${humanPct}%`:''}
+        </div>
+        <div style="width:${otherPct}%;background:#b3a896" title="Undetermined/Other: ${otherPct}%">
+          ${otherPct>=8?`? ${otherPct}%`:''}
+        </div>
       </div>
-      <div class="cause-stack">${stackBars}</div>
-      <div class="cause-legend">${legendItems}</div>
-      <div class="nullnote" style="margin-top:6px">Human-related = all causes except Lightning, Undetermined, Under Investigation, Restart. Planning lever: <b>${LEVER_LBL[lever]}</b>. ACTIVITY_CLASS ${acFill}% filled · TRUE_CAUSE ${tcFill}% filled.</div>
+      <div style="display:flex;gap:16px;font-size:12px;margin-bottom:8px;flex-wrap:wrap">
+        <span><span style="color:#2f6fa8;font-weight:700">⚡ Lightning ${lightPct}%</span> (${fmtN(rd.causes.find(c=>c.cause==='Lightning')?.n||0)})</span>
+        <span><span style="color:#d98324;font-weight:700">👤 Human-related ${humanPct}%</span></span>
+        <span style="color:var(--muted)">? Undetermined/Other ${otherPct}%</span>
+      </div>
+      <div style="font-size:12.5px;color:#5b5147;margin-bottom:8px">
+        <b>Planning lever: ${LEVER_LBL[lever]}.</b>
+        ${lever==='both'?`Lightning and human causes are nearly even — both detection reach AND prevention matter here.`:
+          lever==='detection'?`Lightning dominates — focus is on early detection and suppression capacity.`:
+          `Human causes dominate — focus is on fire bans, public education, and industry restrictions.`}
+      </div>
+      <!-- Expandable detail -->
+      <button class="expand-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'▲ Hide detail breakdown':'▼ Show detail breakdown (${rd.causes.length} causes)'">▼ Show detail breakdown (${rd.causes.length} causes)</button>
+      <div class="expandable" style="margin-top:10px">
+        <div style="font-size:11px;color:var(--muted);margin-bottom:4px">All ${rd.causes.length} GENERAL_CAUSE categories (N=${fmtN(rd.count)}, fully populated)</div>
+        <div class="cause-stack">${detailBars}</div>
+        <div class="cause-legend">${detailLegend}</div>
+        <div class="note2012">⚠ 2012: Agriculture &amp; Government split out of Resident/Other Industry — cause trends crossing this year are not directly comparable.</div>
+        <div class="nullnote">ACTIVITY_CLASS ${acFill}% filled · TRUE_CAUSE ${tcFill}% filled — detailed cause breakdowns are provisional.</div>
+      </div>
     </div>
 
-    <!-- Size visual -->
-    <div class="size-visual">
-      <h4>Fire size distribution (log scale)</h4>
-      <div style="font-size:12px;color:#5b5147;margin-bottom:8px">
-        The median fire is tiny (<b>${rd.median_ha} ha</b>) — 90% of fires stay under <b>${rd.p90_ha} ha</b>. Yet total burned = <b>${fmtHa(rd.total_ha)}</b>. This skew is why a bare mean is never shown.
+    <!-- Annual trend for this region -->
+    <div class="card" style="margin-bottom:14px">
+      <h3 class="sect">Annual Hectares 2006–2025 vs 20-yr Mean
+        <span class="tip-wrap"><i class="tip-icon" data-tip="Red bars = years above 1.3× the 20-yr mean. Dashed line = 20-yr mean annual ha. Escape years (≥2× mean) are labelled.">?</i></span>
+      </h3>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:4px">Annual ha (red = above norm) · 20-yr mean dashed</div>
+      <div class="sparkline">${spark}</div>
+      <div style="display:flex;justify-content:space-between;font-size:9.5px;color:var(--faint);margin-bottom:10px"><span>2006</span><span>2025</span></div>
+      <div class="chart-wrap"><canvas id="why-trend-chart"></canvas></div>
+      ${escapes.length?`<div style="margin-top:8px;font-size:11.5px;color:var(--muted)">Escape years (≥2× region mean ${fmtHa(rd.mean_h)}): ${escapes.map(([y,ha])=>`<span class="co-year">${y} (${fmtHa(ha)})</span>`).join(' ')}</div>`:''}
+    </div>
+
+    <!-- Size distribution -->
+    <div class="card" style="margin-bottom:14px">
+      <h3 class="sect">Fire Size Distribution
+        <span class="tip-wrap"><i class="tip-icon" data-tip="Log scale — the gap between median and p90 illustrates extreme right-skew. A bare mean would be misleading and is never shown.">?</i></span>
+      </h3>
+      <div style="font-size:12.5px;color:#5b5147;margin-bottom:8px">
+        Median <b>${rd.median_ha} ha</b> · 90th percentile <b>${rd.p90_ha} ha</b> · total <b>${fmtHa(rd.total_ha)}</b>.
+        The top fires account for nearly all area burned — a bare mean would be 13,000× the median and is never shown.
       </div>
       <div class="size-track">
-        <div class="size-marker" style="left:${medPos}%">${rd.median_ha} ha<br>median</div>
-        <div class="size-marker" style="left:${p90Pos}%">${rd.p90_ha} ha<br>p90</div>
-        <div class="size-dot" style="left:${medPos}%;background:#2f6fa8"></div>
-        <div class="size-dot" style="left:${p90Pos}%;background:var(--fire)"></div>
+        <div class="size-marker" style="left:${pos(rd.median_ha)}%">${rd.median_ha} ha<br><b style="color:#2f6fa8">median</b></div>
+        <div class="size-marker" style="left:${pos(rd.p90_ha)}%">${rd.p90_ha} ha<br><b style="color:var(--fire)">p90</b></div>
+        <div class="size-dot" style="left:${pos(rd.median_ha)}%;background:#2f6fa8"></div>
+        <div class="size-dot" style="left:${pos(rd.p90_ha)}%;background:var(--fire)"></div>
       </div>
-      <div style="display:flex;justify-content:space-between;font-size:9.5px;color:var(--faint);margin-top:8px"><span>← smaller (0.01 ha)</span><span>larger →</span></div>
-    </div>
-
-    <!-- Escape years -->
-    <div style="margin-top:14px">
-      <div style="font-size:11px;color:var(--muted);margin-bottom:5px">Escape years (≥2× region mean of ${fmtHa(rd.mean_h)})</div>
-      ${escapes.length?escapes.map(([y,ha])=>`<span class="co-year">${y} (${fmtHa(ha)})</span>`).join(' '):'<em style="color:var(--muted);font-size:12px">None on record</em>'}
+      <div style="display:flex;justify-content:space-between;font-size:9.5px;color:var(--faint);margin-top:8px"><span>← 0.01 ha (log scale)</span><span>larger →</span></div>
     </div>
 
     <!-- AI skills -->
-    <div style="margin-top:16px;border-top:1px solid var(--line);padding-top:14px">
-      <h3 class="sect">AI Skills</h3>
+    <div class="card">
+      <h3 class="sect">Generate Analysis</h3>
       <div class="skill-btns">
         <button class="skill-btn" onclick="runExplain('${name}')">💡 Explain Flag</button>
         <button class="skill-btn sec" onclick="runConf('${name}')">🎯 Confidence Tiers</button>
-        <button class="skill-btn sec" onclick="runNarr('${name}')">📄 Director Brief</button>
+        <button class="skill-btn sec" onclick="runNarr('${name}')">📄 Director Brief Text</button>
       </div>
       <div class="skill-output" id="sk-explain"></div>
       <div class="skill-output" id="sk-conf"></div>
       <div class="skill-output" id="sk-narr"></div>
-    </div>`;
-}
-selectRegion('Grande Prairie');
+    </div>
+  `;
 
-// ── Skills ────────────────────────────────────────────────────────────────
+  // Draw trend chart
+  if(trendChartInstance){ trendChartInstance.destroy(); trendChartInstance=null; }
+  const years=Object.keys(rd.annual_ha).sort();
+  trendChartInstance = new Chart(document.getElementById('why-trend-chart').getContext('2d'),{
+    data:{labels:years,datasets:[
+      {type:'bar',label:'Annual ha',data:years.map(y=>rd.annual_ha[y]),
+       backgroundColor:years.map(y=>rd.annual_ha[y]>=rd.mean_h*1.3?'rgba(192,57,43,0.55)':'rgba(192,57,43,0.18)'),
+       borderColor:'#c0392b',borderWidth:1},
+      {type:'line',label:'20-yr mean',data:years.map(()=>rd.mean_h),
+       borderColor:'#888',borderDash:[4,4],pointRadius:0,borderWidth:1.5,tension:0},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{tooltip:{mode:'index',intersect:false},legend:{labels:{font:{size:11}}}},
+      scales:{x:{ticks:{font:{size:10}}},y:{ticks:{font:{size:10},callback:v=>v>=1e6?(v/1e6).toFixed(2)+'M':v>=1e3?(v/1e3).toFixed(0)+'k':v}}}}
+  });
+}
+
+// ── AI Skills ─────────────────────────────────────────────────────────────
 function runExplain(name){
   const rd=DATA.regions[name], lever=getLever(rd);
   const acFill=100-rd.ac_null, tcFill=100-rd.tc_null;
@@ -587,12 +623,12 @@ function runExplain(name){
   if(rd.flag_h) triggered.push(`hectares ratio ${rd.ratio_h.toFixed(2)}× (recent 3-yr ${fmtHa(rd.rec_h)} vs 20-yr mean ${fmtHa(rd.mean_h)})`);
   if(rd.flag_c) triggered.push(`count ratio ${rd.ratio_c.toFixed(2)}×`);
   const parts=[];
-  parts.push(triggered.length?`<b>Flag:</b> ${name} is above the 1.3× norm on ${triggered.join(' and ')}.`:`<b>Status:</b> ${name} is near or below 20-yr norms (ha ${rd.ratio_h.toFixed(2)}×, count ${rd.ratio_c.toFixed(2)}×).`);
+  parts.push(triggered.length?`<b>Flag:</b> ${name} is above the 1.3× norm on ${triggered.join(' and ')}.`:`<b>Status:</b> ${name} is near or below 20-yr norms.`);
   if(escapes.length) parts.push(`<b>Escape years</b> (≥2× region mean ${fmtHa(rd.mean_h)}): ${escapes.map(([y,ha])=>`${y} (${fmtHa(ha)})`).join(', ')}.`);
-  parts.push(`<b>Cause mix:</b> Lightning ${rd.lightning_pct}%, Human-related ${rd.human_pct}% (human = all except Lightning/Undetermined/Under Investigation/Restart). <b>Planning lever: ${LEVER_LBL[lever]}.</b>`);
-  parts.push(`<b>Data quality:</b> ACTIVITY_CLASS ${acFill.toFixed(0)}% filled (tier ${tierCls(acFill)}: ${tierLbl(acFill)}); TRUE_CAUSE ${tcFill.toFixed(0)}% filled (tier ${tierCls(tcFill)}: ${tierLbl(tcFill)}).`+(acFill<50?' ⚠ Below 50% — provisional.':''));
-  parts.push(`<b>Response time:</b> Median lag ${rd.lag_med}h on ${rd.lag_cov.toFixed(0)}% of fires (REPORTED→FIRE_FIGHTING_START).`);
-  parts.push(`<em>The analyst makes and owns the recommendation. Any override must be logged. FPA-only; cost and forecast out of scope.</em>`);
+  parts.push(`<b>Cause mix:</b> Lightning ${rd.lightning_pct}%, Human-related ${rd.human_pct}%. <b>Planning lever: ${LEVER_LBL[lever]}.</b>`);
+  parts.push(`<b>Data quality:</b> ACTIVITY_CLASS ${acFill.toFixed(0)}% filled (${tierLbl(acFill)}); TRUE_CAUSE ${tcFill.toFixed(0)}% filled (${tierLbl(tcFill)}).`+(acFill<50?' ⚠ Below 50% — provisional.':''));
+  parts.push(`<b>Response time:</b> Median lag ${rd.lag_med}h on ${rd.lag_cov.toFixed(0)}% of fires.`);
+  parts.push(`<em>Analyst owns the recommendation. FPA-only; cost and forecast out of scope.</em>`);
   const el=document.getElementById('sk-explain');
   el.innerHTML=`<h3 style="font-size:13.5px;margin-bottom:10px">Explain Flag — ${name}</h3>${parts.map(p=>`<p style="margin-bottom:9px">${p}</p>`).join('')}`;
   el.className='skill-output show';
@@ -602,7 +638,7 @@ function runConf(name){
   const fields=[{f:'ACTIVITY_CLASS',v:(100-rd.ac_null).toFixed(1),n:'Cause-activity detail'},{f:'TRUE_CAUSE',v:(100-rd.tc_null).toFixed(1),n:'True cause'},{f:'Response lag',v:rd.lag_cov.toFixed(1),n:'REPORTED→FIRE_FIGHTING_START'}];
   let h=`<h3 style="font-size:13.5px;margin-bottom:8px">Confidence Tiers — ${name}</h3><table><tr><th>Field</th><th>Fill %</th><th>Tier</th><th>Note</th></tr>`;
   fields.forEach(f=>{const t=tierCls(parseFloat(f.v));h+=`<tr><td>${f.f}</td><td style="text-align:center">${f.v}%</td><td><span class="tier-${t}">${t}: ${tierLbl(parseFloat(f.v))}</span></td><td style="color:var(--muted)">${f.n}${parseFloat(f.v)<50?' — limited reliability':''}</td></tr>`;});
-  h+=`</table><p style="margin-top:8px;font-size:12px;color:#5b5147">GENERAL_CAUSE and fire size (count, ha, median, p90) are fully populated and carry high confidence.</p>`;
+  h+=`</table><p style="margin-top:8px;font-size:12px;color:#5b5147">GENERAL_CAUSE and fire size (count, ha, median, p90) are fully populated — high confidence.</p>`;
   const el=document.getElementById('sk-conf'); el.innerHTML=h; el.className='skill-output show';
 }
 function runNarr(name){
@@ -610,266 +646,223 @@ function runNarr(name){
   const acFill=100-rd.ac_null, tcFill=100-rd.tc_null;
   const escapes=Object.entries(rd.annual_ha).filter(([,ha])=>ha>=rd.mean_h*2).sort((a,b)=>b[1]-a[1]).slice(0,4);
   let h=`<h3 style="font-size:13.5px;margin-bottom:10px">${name} — Director Brief</h3>`;
-  h+=`<p style="margin-bottom:6px;font-size:12.5px"><b>High-confidence findings:</b></p><ul style="margin:0 0 12px 18px;font-size:13px;line-height:1.7">`;
+  h+=`<ul style="margin:0 0 12px 18px;font-size:13px;line-height:1.7">`;
   h+=`<li>${fmtN(rd.count)} fires 2006–2025 (${rd.pct}% of FPA total ${fmtN(p.total_fires)}). Recent 3-yr: ${fmtHa(rd.rec_h)}/yr vs 20-yr mean ${fmtHa(rd.mean_h)}/yr (${rd.ratio_h.toFixed(2)}×).</li>`;
   if(escapes.length) h+=`<li>Escape years (≥2× mean): ${escapes.map(([y,ha])=>`${y} (${fmtHa(ha)})`).join(', ')}.</li>`;
   h+=`<li>Median ${rd.median_ha} ha · p90 ${rd.p90_ha} ha · total ${fmtHa(rd.total_ha)} (FPA-only).</li>`;
   h+=`<li>Cause: Lightning ${rd.lightning_pct}%, Human-related ${rd.human_pct}%. Lever: <b>${LEVER_LBL[lever]}</b>.</li></ul>`;
-  const spec=[];
-  if(acFill<60||tcFill<60) spec.push(`Cause-detail fields are partially filled (ACTIVITY_CLASS ${acFill.toFixed(0)}%, TRUE_CAUSE ${tcFill.toFixed(0)}%) — any breakdown is provisional.`);
-  if(rd.lag_cov<70) spec.push(`Response-time estimate (${rd.lag_med}h) covers ${rd.lag_cov.toFixed(0)}% of fires — indicative only.`);
-  if(spec.length){h+=`<p style="margin-bottom:6px;font-size:12.5px"><b>Provisional:</b></p><ul style="margin:0 0 12px 18px;font-size:13px;line-height:1.7">`;spec.forEach(s=>h+=`<li>${s}</li>`);h+=`</ul>`;}
-  h+=`<p style="font-size:11.5px;color:#5b5147;border-top:1px solid var(--line);padding-top:8px">Analyst decision: deployment/prevention is the analyst's call. Any flag override must be logged. FPA-only; no cost figures; no forecast.</p>`;
+  if(acFill<60||tcFill<60) h+=`<p style="font-size:12.5px;color:#5b5147">Provisional: ACTIVITY_CLASS ${acFill.toFixed(0)}% filled, TRUE_CAUSE ${tcFill.toFixed(0)}% filled.</p>`;
+  h+=`<p style="font-size:11.5px;color:#5b5147;border-top:1px solid var(--line);padding-top:8px;margin-top:8px">FPA-only · no cost figures · no forecast · analyst owns the recommendation</p>`;
   const el=document.getElementById('sk-narr'); el.innerHTML=h; el.className='skill-output show';
 }
 
-// ── Trend charts ──────────────────────────────────────────────────────────
-(function(){
-  const p=DATA.province, years=Object.keys(p.annual_count).sort();
-  new Chart(document.getElementById('trend-chart').getContext('2d'),{
-    data:{labels:years,datasets:[
-      {type:'bar',label:'Ha burned',data:years.map(y=>p.annual_ha[y]),backgroundColor:'rgba(192,57,43,0.2)',borderColor:'rgba(192,57,43,0.5)',borderWidth:1,yAxisID:'yHa'},
-      {type:'line',label:'Fire count',data:years.map(y=>p.annual_count[y]),borderColor:'#2f6fa8',backgroundColor:'rgba(47,111,168,0.08)',tension:0.3,pointRadius:3,yAxisID:'yCt'},
-    ]},
-    options:{responsive:true,maintainAspectRatio:false,
-      plugins:{tooltip:{mode:'index',intersect:false},legend:{labels:{font:{size:11}}}},
-      scales:{x:{ticks:{font:{size:10}}},
-        yHa:{position:'left',title:{display:true,text:'Hectares',font:{size:10}},ticks:{font:{size:10},callback:v=>v>=1e6?(v/1e6).toFixed(1)+'M':v>=1e3?(v/1e3).toFixed(0)+'k':v}},
-        yCt:{position:'right',grid:{drawOnChartArea:false},title:{display:true,text:'Count',font:{size:10}},ticks:{font:{size:10}}}}}
-  });
-  document.getElementById('dist-story').innerHTML=
-    `Top <b>1% of fires</b> account for ~<b>${p.top1_share}%</b> of all FPA hectares burned 2006–2025. Median fire = <b>${p.median_ha} ha</b>. A bare mean would be <b>262 ha</b> — 13,000× the median — and is never shown. Fire size is always median + p90 + total.`;
-})();
-(function(){
-  const sel=document.getElementById('region-trend-sel');
-  Object.keys(DATA.regions).forEach(r=>{const o=document.createElement('option');o.value=r;o.textContent=r;sel.appendChild(o);});
-  let rc=null;
-  function draw(region){
-    const rd=DATA.regions[region], years=Object.keys(rd.annual_ha).sort();
-    if(rc) rc.destroy();
-    rc=new Chart(document.getElementById('region-trend-chart').getContext('2d'),{
-      data:{labels:years,datasets:[
-        {type:'bar',label:'Annual ha',data:years.map(y=>rd.annual_ha[y]),backgroundColor:years.map(y=>rd.annual_ha[y]>=rd.mean_h*1.3?'rgba(192,57,43,0.5)':'rgba(192,57,43,0.18)'),borderColor:'#c0392b',borderWidth:1},
-        {type:'line',label:'20-yr mean',data:years.map(()=>rd.mean_h),borderColor:'#888',borderDash:[4,4],pointRadius:0,borderWidth:1.5,tension:0},
-      ]},
-      options:{responsive:true,maintainAspectRatio:false,
-        plugins:{tooltip:{mode:'index',intersect:false},legend:{labels:{font:{size:11}}}},
-        scales:{x:{ticks:{font:{size:10}}},y:{ticks:{font:{size:10},callback:v=>v>=1e6?(v/1e6).toFixed(2)+'M':v>=1e3?(v/1e3).toFixed(0)+'k':v}}}}
-    });
-  }
-  sel.addEventListener('change',()=>draw(sel.value)); draw(sel.value);
-})();
+// ── Recommendation scoring ─────────────────────────────────────────────────
+const CAP=8;
+const recRows = Object.entries(DATA.regions).map(([name,rd])=>{
+  const lever=getLever(rd);
+  const dm=lever==='detection'?1:lever==='prevention'?0:0.5;
+  const pm=lever==='prevention'?1:lever==='detection'?0:0.5;
+  return {name,ratio_h:Math.min(rd.ratio_h,CAP),ratio_c:Math.min(rd.ratio_c,CAP),lag_med:rd.lag_med,lag_cov:rd.lag_cov,lever,dm,pm,flag_h:rd.flag_h};
+});
+const norm=arr=>{const mn=Math.min(...arr),mx=Math.max(...arr);return arr.map(v=>mx===mn?0.5:(v-mn)/(mx-mn));};
+const rhN=norm(recRows.map(r=>r.ratio_h)), rcN=norm(recRows.map(r=>r.ratio_c)), lgN=norm(recRows.map(r=>r.lag_med));
+recRows.forEach((r,i)=>{
+  const lc=r.lag_cov<50?lgN[i]*0.5:lgN[i];
+  const b=rhN[i]*0.40+rcN[i]*0.15;
+  r.ds=+(b+b*0.30*r.dm+lc*0.15).toFixed(3);
+  r.ps=+(b+b*0.30*r.pm+lc*0.15).toFixed(3);
+});
+const depList=[...recRows].sort((a,b)=>b.ds-a.ds);
+const preList=[...recRows].sort((a,b)=>b.ps-a.ps);
 
-// ── Recommend ─────────────────────────────────────────────────────────────
-document.getElementById('run-rec-btn').addEventListener('click',()=>{
-  const cap=8, rows=Object.entries(DATA.regions).map(([name,rd])=>{
-    const lever=getLever(rd), dm=lever==='detection'?1:lever==='prevention'?0:0.5, pm=lever==='prevention'?1:lever==='detection'?0:0.5;
-    return {name,ratio_h:Math.min(rd.ratio_h,cap),ratio_c:Math.min(rd.ratio_c,cap),lag_med:rd.lag_med,lag_cov:rd.lag_cov,lever,dm,pm,flag_h:rd.flag_h};
+function buildRecList(id, list, sk){
+  const ul=document.getElementById(id); ul.innerHTML='';
+  list.forEach((r,i)=>{
+    const li=document.createElement('li');
+    const isCur=r.name===currentRegion;
+    li.innerHTML=`<div class="rec-row1"><span class="rec-rank">${i+1}.</span><span class="rec-name ${isCur?'cur':''}">${r.name}${r.flag_h?'<span class="badge badge-h">▲</span>':''}${isCur?'<span style="font-size:10px;color:var(--fire);margin-left:4px">← selected</span>':''}</span><span class="rec-score">${r[sk].toFixed(3)} · ${DATA.regions[r.name].ratio_h.toFixed(2)}× ha</span></div><div class="rec-lever">${LEVER_LBL[r.lever]}</div>`;
+    li.style.cursor='pointer';
+    li.addEventListener('click',()=>selectRegion(r.name));
+    ul.appendChild(li);
   });
-  const norm=arr=>{const mn=Math.min(...arr),mx=Math.max(...arr);return arr.map(v=>mx===mn?0.5:(v-mn)/(mx-mn));};
-  const rhN=norm(rows.map(r=>r.ratio_h)), rcN=norm(rows.map(r=>r.ratio_c)), lgN=norm(rows.map(r=>r.lag_med));
-  rows.forEach((r,i)=>{const lc=r.lag_cov<50?lgN[i]*0.5:lgN[i], b=rhN[i]*0.40+rcN[i]*0.15, lb=rhN[i]*0.5+lc*0.5; r.ds=+(b+lb*0.30*r.dm+lc*0.15).toFixed(3); r.ps=+(b+lb*0.30*r.pm+lc*0.15).toFixed(3);});
-  const dep=[...rows].sort((a,b)=>b.ds-a.ds), pre=[...rows].sort((a,b)=>b.ps-a.ps);
-  function fill(id,list,sk){
-    const ul=document.getElementById(id); ul.innerHTML='';
-    list.forEach((r,i)=>{
-      const li=document.createElement('li');
-      li.innerHTML=`<div class="rec-row1"><span class="rec-rank">${i+1}.</span><span class="rec-name">${r.name}${r.flag_h?'<span class="badge badge-h" style="margin-left:4px">Ha↑</span>':''}</span><span class="rec-score">score ${r[sk].toFixed(3)} · ${DATA.regions[r.name].ratio_h.toFixed(2)}× ha</span></div><div class="rec-lever">${LEVER_LBL[r.lever]}</div>`;
-      ul.appendChild(li);
-    });
-  }
-  fill('deploy-list',dep,'ds'); fill('prevent-list',pre,'ps');
-  document.getElementById('rec-out').style.display='block';
+}
+buildRecList('deploy-list',depList,'ds');
+buildRecList('prevent-list',preList,'ps');
+selectRegion('Grande Prairie');
+
+function renderDecideCard(name){
+  const rd=DATA.regions[name], lever=getLever(rd);
+  const depRank=depList.findIndex(r=>r.name===name)+1;
+  const preRank=preList.findIndex(r=>r.name===name)+1;
+  const escapes=Object.entries(rd.annual_ha).filter(([,ha])=>ha>=rd.mean_h*2).sort((a,b)=>b[1]-a[1]).slice(0,4);
+  document.getElementById('rec-region-card').innerHTML=`
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+      <div>
+        <div style="font-size:18px;font-weight:800">${name}</div>
+        <div style="font-size:12.5px;color:var(--muted)">${fmtN(rd.count)} fires · ${rd.pct}% of FPA · ${fmtHa(rd.total_ha)} total</div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <div style="text-align:center;background:#fdf0ee;border-radius:8px;padding:8px 14px">
+          <div style="font-size:20px;font-weight:800;color:var(--fire)">#${depRank}</div>
+          <div style="font-size:10px;color:var(--muted)">Deployment</div>
+        </div>
+        <div style="text-align:center;background:#f0f8f0;border-radius:8px;padding:8px 14px">
+          <div style="font-size:20px;font-weight:800;color:var(--ok)">#${preRank}</div>
+          <div style="font-size:10px;color:var(--muted)">Prevention</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:13px;color:#5b5147;line-height:1.65;margin-bottom:10px">
+      <b>${LEVER_ICON[lever]} Suggested action:</b> ${
+        lever==='detection'?`Pre-position Initial Attack crews and air tanker coverage. Lightning dominates (${rd.lightning_pct}%) — early detection and rapid suppression are the primary levers.`:
+        lever==='prevention'?`Concentrate prevention effort: fire bans, public outreach, industry restrictions. Human-related causes are ${rd.human_pct}% — detection capacity is less critical here.`:
+        `Both deployment and prevention warranted. Lightning (${rd.lightning_pct}%) and human causes (${rd.human_pct}%) are nearly even — neither lever alone is sufficient.`
+      }
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;font-size:12.5px">
+      <div style="background:#f7f5f2;border-radius:6px;padding:8px 10px"><span style="color:var(--muted);font-size:11px;display:block">Ha ratio</span><b>${rd.ratio_h.toFixed(2)}×</b>${rd.flag_h?' <span style="color:var(--flag)">▲ flagged</span>':''}</div>
+      <div style="background:#f7f5f2;border-radius:6px;padding:8px 10px"><span style="color:var(--muted);font-size:11px;display:block">Lightning / Human</span><b>${rd.lightning_pct}% / ${rd.human_pct}%</b></div>
+      <div style="background:#f7f5f2;border-radius:6px;padding:8px 10px"><span style="color:var(--muted);font-size:11px;display:block">Median response lag</span><b>${rd.lag_med}h</b> (${rd.lag_cov.toFixed(0)}% cov.)</div>
+      ${escapes.length?`<div style="background:#fff8f0;border-radius:6px;padding:8px 10px"><span style="color:var(--muted);font-size:11px;display:block">Recent escape years</span><b>${escapes.slice(0,3).map(([y])=>y).join(', ')}</b></div>`:''}
+    </div>
+  `;
+  // Rebuild ranked lists to highlight current
+  buildRecList('deploy-list',depList,'ds');
+  buildRecList('prevent-list',preList,'ps');
+}
+
+// ── Copy brief ─────────────────────────────────────────────────────────────
+document.getElementById('copy-brief-btn').addEventListener('click',()=>{
+  const name=currentRegion, rd=DATA.regions[name], lever=getLever(rd);
+  const depRank=depList.findIndex(r=>r.name===name)+1;
+  const preRank=preList.findIndex(r=>r.name===name)+1;
+  const escapes=Object.entries(rd.annual_ha).filter(([,ha])=>ha>=rd.mean_h*2).sort((a,b)=>b[1]-a[1]).slice(0,4);
+  const notes=document.getElementById('analyst-notes').value.trim();
+  const text=[
+    `FIREWATCH ALBERTA — DIRECTOR BRIEF`,
+    `Region: ${name}   |   Generated: ${new Date().toLocaleDateString()}`,
+    ``,
+    `BENCHMARK STATUS`,
+    `  Ha ratio: ${rd.ratio_h.toFixed(2)}× (recent 3-yr ${fmtHa(rd.rec_h)}/yr vs 20-yr mean ${fmtHa(rd.mean_h)}/yr) — ${rd.flag_h?'ABOVE NORM (flagged)':'within norm'}`,
+    `  Count ratio: ${rd.ratio_c.toFixed(2)}× — ${rd.flag_c?'ABOVE NORM (flagged)':'within norm'}`,
+    ``,
+    `KEY FIGURES (2006–2025)`,
+    `  Fires: ${fmtN(rd.count)} (${rd.pct}% of FPA total ${fmtN(DATA.province.total_fires)})`,
+    `  Area: Median ${rd.median_ha} ha  |  p90 ${rd.p90_ha} ha  |  Total ${fmtHa(rd.total_ha)}  [FPA-only]`,
+    escapes.length?`  Escape years (≥2× mean): ${escapes.map(([y,ha])=>`${y} (${fmtHa(ha)})`).join(', ')}`:'',
+    ``,
+    `CAUSE & PLANNING LEVER`,
+    `  Lightning: ${rd.lightning_pct}%  |  Human-related: ${rd.human_pct}%  |  Other/Undetermined: ${+(100-rd.lightning_pct-rd.human_pct).toFixed(1)}%`,
+    `  Lever: ${LEVER_LBL[lever]}`,
+    ``,
+    `RECOMMENDATION RANK`,
+    `  Deployment (Initial Attack / Air Tanker): #${depRank} of 10`,
+    `  Prevention (bans / education / restrictions): #${preRank} of 10`,
+    ``,
+    notes?`ANALYST NOTES\n  ${notes}\n`:'',
+    `CAVEATS`,
+    `  FPA-only scope. No cost figures. No forecast. Analyst owns the deployment/prevention decision.`,
+    `  ACTIVITY_CLASS ${(100-rd.ac_null).toFixed(0)}% filled  |  TRUE_CAUSE ${(100-rd.tc_null).toFixed(0)}% filled  |  Response lag ${rd.lag_cov.toFixed(0)}% coverage`,
+    `  Source: Alberta Forestry & Parks — Historical Wildfire Database 2006–2025. Open Government Licence – Alberta.`,
+  ].filter(l=>l!==undefined&&l!==null).join('\n');
+  navigator.clipboard.writeText(text).then(()=>{
+    const conf=document.getElementById('copy-confirm');
+    conf.style.display='inline';
+    setTimeout(()=>{conf.style.display='none';},2500);
+  });
 });
 
-// ── Cross-Region ──────────────────────────────────────────────────────────
-(function(){
-  const regions=Object.keys(DATA.regions);
-  ['cross-a','cross-b'].forEach((id,i)=>{
-    const s=document.getElementById(id);
-    regions.forEach(r=>{const o=document.createElement('option');o.value=r;o.textContent=r;if(i===1&&r!==regions[0])o.selected=r===regions[1];s.appendChild(o);});
+// ── Map (WHERE tab — init on load since it's first tab) ───────────────────
+const CENTROIDS = {
+  'Calgary':[51.05,-114.10],'Edson':[53.60,-116.40],'Grande Prairie':[55.20,-118.80],
+  'High Level':[58.50,-117.00],'Lac La Biche':[54.80,-111.90],'Fort McMurray':[56.70,-111.40],
+  'Peace River':[56.20,-117.30],'Rocky':[52.40,-114.90],'Slave Lake':[55.30,-114.80],
+  'Whitecourt':[54.10,-115.70],
+};
+setTimeout(()=>{
+  const map=L.map('map-container',{center:[55.0,-115.5],zoom:5});
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',maxZoom:10
+  }).addTo(map);
+  Object.entries(DATA.regions).forEach(([name,rd])=>{
+    const ll=CENTROIDS[name]; if(!ll) return;
+    const r=Math.max(10,Math.min(52,Math.sqrt(rd.total_ha)/28));
+    const c=L.circleMarker(ll,{radius:r,color:'#fff',weight:1.5,fillColor:ratioColor(rd.ratio_h),fillOpacity:0.85}).addTo(map);
+    c.bindPopup(`<b>${name}</b><br>Ha ratio: <b>${rd.ratio_h.toFixed(2)}×</b>${rd.flag_h?' ▲':''}<br>Total ha: ${fmtHa(rd.total_ha)}<br>Lever: ${LEVER_ICON[getLever(rd)]} ${getLever(rd)}<br><a href="#" onclick="selectRegion('${name}');document.querySelector('[data-tab=why]').click();return false;" style="font-size:12px">→ Open Why tab</a>`);
+    c.bindTooltip(name,{permanent:false,direction:'top'});
+    c.on('click',()=>c.openPopup());
   });
-})();
-document.getElementById('run-cross-btn').addEventListener('click',()=>{
-  const a=document.getElementById('cross-a').value, b=document.getElementById('cross-b').value;
-  if(a===b){alert('Select two different regions.');return;}
-  const rda=DATA.regions[a], rdb=DATA.regions[b], t=DATA.meta.threshold;
-  const years=Object.keys(rda.annual_ha).sort();
-  const sa=new Set(years.filter(y=>rda.annual_ha[y]>=rda.mean_h*t));
-  const sb=new Set(years.filter(y=>rdb.annual_ha[y]>=rdb.mean_h*t));
-  const co=[...sa].filter(y=>sb.has(y)).sort();
-  const exp=+(sa.size/years.length*sb.size/years.length*years.length).toFixed(1);
-  const strong=co.length>=2&&co.length>=exp*1.5;
-  document.getElementById('cross-interp').textContent=`${a} and ${b} co-spiked in ${co.length} year${co.length!==1?'s':''}${co.length?` (${co.join(', ')})`:''}. ${strong?`Observed (${co.length}) exceeds expected (${exp}) under independence — pattern is strong enough to flag for the Director.`:`Observed (${co.length}) near expected (${exp}) under independence — likely coincidence.`}`;
-  document.getElementById('cross-cospikes').innerHTML=co.length?co.map(y=>`<span class="co-year">${y}</span>`).join(''):'<em style="color:var(--muted)">None</em>';
-  document.getElementById('cross-sa').textContent=[...sa].sort().join(', ')||'None';
-  document.getElementById('cross-sb').textContent=[...sb].sort().join(', ')||'None';
-  document.getElementById('cross-out').style.display='block';
-});
+},200);
 
-// ── Anomaly ───────────────────────────────────────────────────────────────
-(function(){
-  const sel=document.getElementById('anomaly-year');
-  Object.keys(DATA.province.annual_ha).sort().reverse().forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;if(y==='2023')o.selected=true;sel.appendChild(o);});
-})();
-document.getElementById('run-anomaly-btn').addEventListener('click',()=>{
-  const yr=document.getElementById('anomaly-year').value;
-  const pHa=DATA.province.annual_ha[yr], pCt=DATA.province.annual_count[yr];
-  const allHa=Object.values(DATA.province.annual_ha), allCt=Object.values(DATA.province.annual_count);
-  const mHa=allHa.reduce((a,b)=>a+b,0)/allHa.length, mCt=allCt.reduce((a,b)=>a+b,0)/allCt.length;
-  const rH=+(pHa/mHa).toFixed(2), rC=+(pCt/mCt).toFixed(2);
-  const drivers=[], ambient=[];
-  Object.entries(DATA.regions).forEach(([n,rd])=>{const ya=rd.annual_ha[yr]||0;if(ya>=rd.mean_h*2)drivers.push({n,ha:Math.round(ya),r:+(ya/rd.mean_h).toFixed(1)});else if(ya>=rd.mean_h)ambient.push({n,ha:Math.round(ya)});});
-  drivers.sort((a,b)=>b.ha-a.ha);
-  document.getElementById('anomaly-char').textContent=`${yr}: ${fmtN(pCt)} fires, ${(pHa/1e6).toFixed(2)}M ha (${rH}× ha norm, ${rC}× count norm). Driver regions (≥2× own mean): ${drivers.length?drivers.map(d=>`${d.n} (${fmtHa(d.ha)}, ${d.r}×)`).join(', '):'none'}. The crisis is ${rH>2*rC?'in area burned, not fire count.':'in fire count.'}`;
-  document.getElementById('anomaly-drivers').innerHTML=drivers.length?drivers.map(d=>`<div style="margin-bottom:4px">${d.n}: <b>${fmtHa(d.ha)}</b> (${d.r}× mean)</div>`).join(''):'<em style="color:var(--muted)">None</em>';
-  document.getElementById('anomaly-ambient').innerHTML=ambient.length?ambient.map(d=>`<div style="margin-bottom:4px">${d.n}: ${fmtHa(d.ha)}</div>`).join(''):'<em style="color:var(--muted)">None</em>';
-  document.getElementById('anomaly-out').style.display='block';
-});
-
-// ── Chatbot ───────────────────────────────────────────────────────────────
+// ── Chatbot ────────────────────────────────────────────────────────────────
 (function setupChat(){
-  // Region selector
   const csel=document.getElementById('chat-region-sel');
   Object.keys(DATA.regions).forEach(r=>{const o=document.createElement('option');o.value=r;o.textContent=r;csel.appendChild(o);});
   csel.value='Grande Prairie';
-  csel.addEventListener('change',()=>refreshChips());
-
-  // API key management
   const keyInput=document.getElementById('api-key-input');
   const keyStatus=document.getElementById('api-key-status');
-  const savedKey=localStorage.getItem('fw_api_key')||'';
-  if(savedKey){keyInput.value=savedKey;keyStatus.textContent='Key saved ✓ — using Claude API';keyStatus.className='status ok';}
+  const saved=localStorage.getItem('fw_api_key')||'';
+  if(saved){keyInput.value=saved;keyStatus.textContent='Key saved ✓';keyStatus.className='api-status ok';}
   document.getElementById('api-key-save').addEventListener('click',()=>{
     const k=keyInput.value.trim();
-    if(!k){localStorage.removeItem('fw_api_key');keyStatus.textContent='Key cleared — using rule-based fallback';keyStatus.className='status';return;}
-    if(!k.startsWith('sk-ant-')){keyStatus.textContent='Invalid key format (should start with sk-ant-)';keyStatus.className='status err';return;}
-    localStorage.setItem('fw_api_key',k);keyStatus.textContent='Key saved ✓ — using Claude API';keyStatus.className='status ok';
+    if(!k){localStorage.removeItem('fw_api_key');keyStatus.textContent='Key cleared — rule-based fallback';keyStatus.className='api-status';return;}
+    if(!k.startsWith('sk-ant-')){keyStatus.textContent='Invalid key (sk-ant-…)';keyStatus.className='api-status err';return;}
+    localStorage.setItem('fw_api_key',k);keyStatus.textContent='Key saved ✓';keyStatus.className='api-status ok';
   });
-
-  // Chat history for API
   let chatHistory=[];
-
-  // System prompt builder
   function buildSystem(region){
     const rd=DATA.regions[region], lever=getLever(rd);
     const top5=rd.causes.slice(0,5).map(c=>`  ${c.cause}: ${c.pct}% (${fmtN(c.n)})`).join('\n');
-    const escapes=Object.entries(rd.annual_ha).filter(([,ha])=>ha>=rd.mean_h*2).sort((a,b)=>b[1]-a[1]).slice(0,4).map(([y,ha])=>`${y}: ${fmtHa(ha)}`).join(', ');
-    return `You are FireWatch Alberta, a data assistant for Alberta Wildfire Management Branch. You answer questions grounded strictly in the historical FPA wildfire record (2006–2025).
+    const esc=Object.entries(rd.annual_ha).filter(([,ha])=>ha>=rd.mean_h*2).sort((a,b)=>b[1]-a[1]).slice(0,4).map(([y,ha])=>`${y}: ${fmtHa(ha)}`).join(', ');
+    return `You are FireWatch Alberta, a data assistant for Alberta Wildfire Management Branch analysts. Answer questions grounded strictly in the historical FPA wildfire record (2006–2025).
 
 CURRENT REGION: ${region}
-- Total fires: ${fmtN(rd.count)} (${rd.pct}% of FPA total ${fmtN(DATA.province.total_fires)})
-- Total area: ${fmtHa(rd.total_ha)} | Median fire: ${rd.median_ha} ha | p90: ${rd.p90_ha} ha
-- Ha ratio (recent 3-yr vs 20-yr mean): ${rd.ratio_h}×${rd.flag_h?' — ABOVE NORM (flagged)':''}
-- Count ratio: ${rd.ratio_c}×${rd.flag_c?' — ABOVE NORM (flagged)':''}
-- Lightning: ${rd.lightning_pct}% | Human-related: ${rd.human_pct}%
-- Planning lever: ${LEVER_LBL[lever]}
-- Response lag: ${rd.lag_med}h median (${rd.lag_cov.toFixed(0)}% coverage)
-- ACTIVITY_CLASS: ${(100-rd.ac_null).toFixed(0)}% filled | TRUE_CAUSE: ${(100-rd.tc_null).toFixed(0)}% filled
-- Top causes: \n${top5}
-- Escape years (≥2× mean ${fmtHa(rd.mean_h)}): ${escapes||'none'}
+- Fires: ${fmtN(rd.count)} (${rd.pct}% of FPA) | Ha ratio: ${rd.ratio_h}×${rd.flag_h?' FLAGGED':''} | Count ratio: ${rd.ratio_c}×
+- Area: Median ${rd.median_ha} ha | p90 ${rd.p90_ha} ha | Total ${fmtHa(rd.total_ha)}
+- Lightning: ${rd.lightning_pct}% | Human-related: ${rd.human_pct}% | Lever: ${LEVER_LBL[lever]}
+- Response lag: ${rd.lag_med}h (${rd.lag_cov.toFixed(0)}% coverage)
+- Top causes:\n${top5}
+- Escape years: ${esc||'none'}
 
-PROVINCE CONTEXT: ${fmtN(DATA.province.total_fires)} total FPA fires. 9/10 areas above ha norm 2023–2025. Top 1% of fires = ~97% of area burned.
+HARD RULES: Never say "causes/drives" (say "associated with"). Never forecast. Never state cost. Never present FPA as all-Alberta. Always report size as median+p90+total. Every % must carry N. Analyst owns the decision.
 
-HARD RULES — never break:
-1. Never say "causes" or "drives" for a statistical link — say "associated with"
-2. Never forecast or predict future seasons — this is a finalized historical record
-3. Never state a cost or dollar figure — no cost field exists
-4. Never present an FPA total as all-Alberta — always say "FPA-only"
-5. Always report fire size as median + p90 + total together — never a bare mean
-6. SIZE_CLASS (A–E) is ordinal — never average it
-7. "Human-related" = all causes EXCEPT Lightning, Undetermined, Under Investigation, Restart — state this definition when using the term
-8. Every percentage must carry its N (e.g. "47.0% (1,865)")
-9. Never make climate-attribution claims (no FWI/climate data in this dataset)
-10. The analyst owns the decision — you surface signal only
-
-Keep responses concise (4–7 sentences). Be direct and data-grounded. If asked something outside scope, say so and offer what you can answer.`;
+Keep responses to 4–6 sentences. Be direct and data-grounded.`;
   }
-
-  // Claude API call
-  async function callClaude(message, region){
-    const key=localStorage.getItem('fw_api_key');
-    if(!key) return null; // fall through to keyword
-    chatHistory.push({role:'user',content:message});
+  async function callClaude(msg,region){
+    const key=localStorage.getItem('fw_api_key');if(!key)return null;
+    chatHistory.push({role:'user',content:msg});
     try{
-      const res=await fetch('https://api.anthropic.com/v1/messages',{
-        method:'POST',
-        headers:{
-          'Content-Type':'application/json',
-          'x-api-key':key,
-          'anthropic-version':'2023-06-01',
-          'anthropic-dangerous-direct-browser-access':'true'
-        },
-        body:JSON.stringify({
-          model:'claude-haiku-4-5-20251001',
-          max_tokens:600,
-          system:buildSystem(region),
-          messages:chatHistory
-        })
-      });
-      if(!res.ok){const err=await res.json();throw new Error(err.error?.message||res.status);}
-      const data=await res.json();
-      const reply=data.content[0].text;
+      const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:500,system:buildSystem(region),messages:chatHistory})});
+      if(!res.ok){const e=await res.json();throw new Error(e.error?.message||res.status);}
+      const d=await res.json(); const reply=d.content[0].text;
       chatHistory.push({role:'assistant',content:reply});
       if(chatHistory.length>20) chatHistory=chatHistory.slice(-20);
       return reply;
-    }catch(e){
-      chatHistory.pop();
-      return `⚠ API error: ${e.message}. Check your key or try the rule-based fallback (remove key).`;
-    }
+    }catch(e){chatHistory.pop();return `⚠ API error: ${e.message}`;}
   }
-
-  // Keyword fallback (your teammate's logic, enhanced)
-  function keywordAnswer(text, region){
+  function kwAnswer(text,region){
     const t=text.toLowerCase(), rd=DATA.regions[region], lever=getLever(rd);
-    const has=(arr)=>arr.some(w=>t.includes(w));
-    if(has(['cost','dollar','budget','spend','$','money'])) return `I can't answer that — <b>there is no cost field</b> in this dataset. I can show fire counts, area burned, causes, and response times.`;
-    if(has(['forecast','predict','next year','future','2026','2027','will it','next season'])) return `I won't forecast — this is a <b>finalized historical record (2006–2025)</b>. I can show you how ${region} compares to its own 20-year norm, which is the honest planning signal.`;
-    if(has(['cause','why','lightning','human','arson','incendiary','recreation'])){
-      const top3=rd.causes.slice(0,3).map(c=>`${c.cause} ${c.pct}% (${fmtN(c.n)})`).join(', ');
-      return `<b>${region} cause mix (N=${fmtN(rd.count)}):</b> Top causes — ${top3}. Lightning ${rd.lightning_pct}%, Human-related ${rd.human_pct}% (human = all except Lightning/Undetermined/Under Investigation/Restart). Planning lever: <b>${LEVER_LBL[lever]}</b>.<div class="cnote">FPA-only. Associative — not causal.</div>`;
-    }
-    if(has(['size','big','hectare','median','how large','area burn','small'])){
-      return `<b>${region} fire size:</b> Median <b>${rd.median_ha} ha</b> · 90th percentile <b>${rd.p90_ha} ha</b> · total <b>${fmtHa(rd.total_ha)}</b>. The skew is extreme — a bare mean would be misleading and is never shown.<div class="cnote">Fire size = median + p90 + total. FPA-only.</div>`;
-    }
-    if(has(['trend','worse','getting','recent','norm','flag','watch','above','risk','alert'])){
-      return `<b>${region} vs 20-yr norm:</b> Ha ratio <b>${rd.ratio_h.toFixed(2)}×</b>${rd.flag_h?' — <b>above norm (flagged)</b>':' — within norm'}, count ratio <b>${rd.ratio_c.toFixed(2)}×</b>${rd.flag_c?' — flagged':' — within norm'}. Recent 3-yr mean: ${fmtHa(rd.rec_h)}/yr vs 20-yr mean ${fmtHa(rd.mean_h)}/yr.<div class="cnote">Flag = recent-3-yr mean ≥ 1.3× the 20-yr mean. Analyst owns the call.</div>`;
-    }
-    if(has(['response','lag','fast','suppression','dispatch'])){
-      return `<b>${region} response time:</b> Median ${rd.lag_med}h lag from report to first suppression (REPORTED_DATE → FIRE_FIGHTING_START_DATE), on <b>${rd.lag_cov.toFixed(0)}%</b> of fires with the field filled. The ${(100-rd.lag_cov).toFixed(0)}% gap is disclosed.<div class="cnote">Not dispatch→arrival. FPA-only.</div>`;
-    }
-    if(has(['overview','summary','about','snapshot','profile','tell me'])){
-      return `<b>${region} — 20-yr snapshot:</b> ${fmtN(rd.count)} fires (${rd.pct}% of FPA). Total area ${fmtHa(rd.total_ha)}. Median fire ${rd.median_ha} ha · p90 ${rd.p90_ha} ha. Lightning ${rd.lightning_pct}% / Human ${rd.human_pct}%. Ha ratio ${rd.ratio_h.toFixed(2)}×${rd.flag_h?' — <b>flagged</b>':''}. Planning lever: ${LEVER_LBL[lever]}.<div class="cnote">FPA-only; cost and forecast out of scope.</div>`;
-    }
-    return `I can answer about <b>causes</b>, <b>fire size</b>, <b>trend & watch-list status</b>, <b>response time</b>, or give an <b>overview</b> of ${region}. Add a Claude API key above for open-ended questions.`;
+    const has=arr=>arr.some(w=>t.includes(w));
+    if(has(['cost','dollar','budget','$','money'])) return `No cost field exists in this dataset — I can't answer cost questions. I can show fire counts, area burned, causes, and response times.`;
+    if(has(['forecast','predict','future','next year','2026','next season'])) return `This is a finalized historical record (2006–2025) — I won't forecast. I can show how ${region} compares to its own 20-year norm.`;
+    if(has(['cause','why','lightning','human','arson','incendiary'])){const top3=rd.causes.slice(0,3).map(c=>`${c.cause} ${c.pct}% (${fmtN(c.n)})`).join(', ');return `<b>${region} cause mix (N=${fmtN(rd.count)}):</b> ${top3}. Lightning ${rd.lightning_pct}%, Human-related ${rd.human_pct}%. Lever: <b>${LEVER_LBL[lever]}</b>.<div class="cnote">FPA-only. Associative — not causal.</div>`;}
+    if(has(['size','hectare','median','large','area'])) return `<b>${region} fire size:</b> Median <b>${rd.median_ha} ha</b> · p90 <b>${rd.p90_ha} ha</b> · total <b>${fmtHa(rd.total_ha)}</b>. Bare mean is not shown — the skew is extreme.<div class="cnote">FPA-only.</div>`;
+    if(has(['trend','norm','flag','watch','above','risk'])) return `<b>${region} vs norm:</b> Ha ratio <b>${rd.ratio_h.toFixed(2)}×</b>${rd.flag_h?' — <b>flagged</b>':' — within norm'} · Count ratio <b>${rd.ratio_c.toFixed(2)}×</b>. Recent 3-yr mean: ${fmtHa(rd.rec_h)}/yr vs 20-yr mean ${fmtHa(rd.mean_h)}/yr.<div class="cnote">Flag = recent-3-yr ≥ 1.3× the 20-yr mean.</div>`;
+    if(has(['response','lag','dispatch','suppression'])) return `<b>${region} response:</b> Median ${rd.lag_med}h lag (REPORTED→FIRE_FIGHTING_START) on <b>${rd.lag_cov.toFixed(0)}%</b> of fires.<div class="cnote">FPA-only.</div>`;
+    return `I can answer about <b>causes</b>, <b>fire size</b>, <b>trend/norm</b>, or <b>response time</b> for ${region}. Add a Claude API key above for open-ended questions.`;
   }
-
-  // Message display
   const msgs=document.getElementById('chat-messages');
-  function addMsg(role, html){
-    const d=document.createElement('div');d.className=`cmsg ${role}`;
-    d.innerHTML=`<div class="cavatar">${role==='bot'?'🔥':'You'}</div><div class="cbubble">${html}</div>`;
-    msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight;
-  }
-  function addTyping(){
-    const d=document.createElement('div');d.className='cmsg bot';d.id='typing-indicator';
-    d.innerHTML=`<div class="cavatar">🔥</div><div class="typing"><span></span><span></span><span></span></div>`;
-    msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight;
-  }
-  function removeTyping(){const t=document.getElementById('typing-indicator');if(t)t.remove();}
-
-  // Chips
-  function refreshChips(){
-    const region=document.getElementById('chat-region-sel').value;
+  function addMsg(role,html){const d=document.createElement('div');d.className=`cmsg ${role}`;d.innerHTML=`<div class="cavatar">${role==='bot'?'🔥':'You'}</div><div class="cbubble">${html}</div>`;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
+  function addTyping(){const d=document.createElement('div');d.className='cmsg bot';d.id='typing-ind';d.innerHTML=`<div class="cavatar">🔥</div><div class="typing"><span></span><span></span><span></span></div>`;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
+  function removeTyping(){const t=document.getElementById('typing-ind');if(t)t.remove();}
+  function refreshChips(region){
+    const ex=document.getElementById('chat-chips');if(ex)ex.remove();
     const rd=DATA.regions[region];
-    const existing=document.getElementById('chat-chips');if(existing)existing.remove();
-    const chips=['Give me an overview','What causes the fires?','How big are the fires?',rd.flag_h?'Why is it flagged?':'Is it above norm?','What should we focus on?'];
+    const chips=['Give me an overview','What causes the fires?',rd.flag_h?'Why is it flagged?':'Is it above norm?','How big are the fires?'];
     const d=document.createElement('div');d.id='chat-chips';d.className='chat-chips';
     chips.forEach(c=>{const s=document.createElement('span');s.className='chip';s.textContent=c;s.onclick=()=>submit(c);d.appendChild(s);});
-    msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight;
+    msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;
   }
-
-  // Submit
   async function submit(text){
     if(!text.trim()) return;
     const region=document.getElementById('chat-region-sel').value;
@@ -877,30 +870,19 @@ Keep responses concise (4–7 sentences). Be direct and data-grounded. If asked 
     addMsg('user',text.replace(/</g,'&lt;'));
     document.getElementById('chat-q').value='';
     addTyping();
-    const apiKey=localStorage.getItem('fw_api_key');
+    const key=localStorage.getItem('fw_api_key');
     let reply;
-    if(apiKey){
-      reply=await callClaude(text, region);
-      if(!reply) reply=keywordAnswer(text, region);
-    } else {
-      await new Promise(r=>setTimeout(r,300));
-      reply=keywordAnswer(text, region);
-    }
-    removeTyping();
-    addMsg('bot',reply);
-    refreshChips();
+    if(key){reply=await callClaude(text,region);if(!reply)reply=kwAnswer(text,region);}
+    else{await new Promise(r=>setTimeout(r,250));reply=kwAnswer(text,region);}
+    removeTyping();addMsg('bot',reply);refreshChips(region);
   }
-
   document.getElementById('chat-send').onclick=()=>submit(document.getElementById('chat-q').value);
   document.getElementById('chat-q').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();submit(e.target.value);}});
-  document.getElementById('chat-q').addEventListener('input',e=>{e.target.style.height='auto';e.target.style.height=Math.min(e.target.scrollHeight,100)+'px';});
-
-  // Greet
-  addMsg('bot',`👋 I'm the <b>FireWatch analyst assistant</b>, grounded in the Alberta FPA wildfire record (2006–2025 · ${fmtN(DATA.province.total_fires)} fires). Switch regions with the dropdown above, or just name one in your question.<br><br>Add a <b>Claude API key</b> above for open-ended questions — without one, I use a rule-based fallback that handles the most common queries.`);
-  refreshChips();
+  addMsg('bot',`👋 I'm grounded in the Alberta FPA wildfire record (2006–2025 · ${fmtN(DATA.province.total_fires)} fires). Use the dropdown to switch regions, or just name one in your question.`);
+  refreshChips('Grande Prairie');
 })();
 
-// ── Override Log ──────────────────────────────────────────────────────────
+// ── Override Log ───────────────────────────────────────────────────────────
 const LOG_KEY='fw_override_log';
 function readLog(){try{return JSON.parse(localStorage.getItem(LOG_KEY)||'[]');}catch{return[];}}
 function renderLog(){
@@ -915,7 +897,7 @@ document.getElementById('log-submit').addEventListener('click',()=>{
   const [analyst,session,changed_field,original_flag,reason]=['log-analyst','log-session','log-field','log-original','log-reason'].map(g);
   const al=document.getElementById('log-alert');
   if(!analyst||!session||!changed_field||!original_flag||!reason){al.className='alert err';al.textContent='✗ All fields required.';al.style.display='block';return;}
-  if(reason.length<10){al.className='alert err';al.textContent='✗ Reason must be at least 10 characters.';al.style.display='block';return;}
+  if(reason.length<10){al.className='alert err';al.textContent='✗ Reason must be ≥10 characters.';al.style.display='block';return;}
   const entries=readLog();
   entries.push({timestamp:new Date().toISOString(),analyst,session,changed_field,original_flag,reason});
   localStorage.setItem(LOG_KEY,JSON.stringify(entries));
@@ -923,67 +905,17 @@ document.getElementById('log-submit').addEventListener('click',()=>{
   al.className='alert ok';al.textContent='✓ Entry logged.';al.style.display='block';
   renderLog();
 });
+renderLog();
 
-// ── Map ───────────────────────────────────────────────────────────────────
-const CENTROIDS = {
-  'Calgary':       [51.05, -114.10],
-  'Edson':         [53.60, -116.40],
-  'Grande Prairie':[55.20, -118.80],
-  'High Level':    [58.50, -117.00],
-  'Lac La Biche':  [54.80, -111.90],
-  'Fort McMurray': [56.70, -111.40],
-  'Peace River':   [56.20, -117.30],
-  'Rocky':         [52.40, -114.90],
-  'Slave Lake':    [55.30, -114.80],
-  'Whitecourt':    [54.10, -115.70],
-};
-function ratioColor(r){
-  if(r>=4)   return '#c0392b';
-  if(r>=2)   return '#e06050';
-  if(r>=1.3) return '#f0a090';
-  if(r>=0.7) return '#f0c060';
-  return '#3a7d44';
-}
-let mapInited=false;
-function initMap(){
-  if(mapInited) return; mapInited=true;
-  const map=L.map('map-container',{center:[55.0,-115.5],zoom:5});
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-    attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    maxZoom:10
-  }).addTo(map);
-  Object.entries(DATA.regions).forEach(([name,rd])=>{
-    const latlng=CENTROIDS[name]; if(!latlng) return;
-    const radius=Math.max(10,Math.min(54,Math.sqrt(rd.total_ha)/28));
-    const color=ratioColor(rd.ratio_h);
-    const circle=L.circleMarker(latlng,{
-      radius,color:'#fff',weight:1.5,fillColor:color,fillOpacity:0.82
-    }).addTo(map);
-    circle.bindPopup(`
-      <b style="font-size:13px">${name}</b><br>
-      Ha ratio: <b>${rd.ratio_h.toFixed(2)}×</b>${rd.flag_h?' <span style="color:#c0392b">▲ flagged</span>':''}<br>
-      Total ha: <b>${fmtHa(rd.total_ha)}</b><br>
-      Fires: ${fmtN(rd.count)} (${rd.pct}%)<br>
-      Lever: ${LEVER_ICON[getLever(rd)]} ${getLever(rd)}<br>
-      <a href="#" onclick="document.querySelector('[data-tab=overview]').click();selectRegion('${name}');return false;" style="font-size:12px">Open detail →</a>
-    `);
-    circle.bindTooltip(name,{permanent:false,direction:'top'});
-    circle.on('click',()=>circle.openPopup());
-  });
-}
-
-// ── Tabs ──────────────────────────────────────────────────────────────────
+// ── Tab switching ──────────────────────────────────────────────────────────
 document.querySelectorAll('.tab').forEach(tab=>{
   tab.addEventListener('click',()=>{
     document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
     document.querySelectorAll('.tabpanel').forEach(p=>p.classList.remove('on'));
     tab.classList.add('on');
     document.getElementById('tab-'+tab.dataset.tab).classList.add('on');
-    if(tab.dataset.tab==='log') renderLog();
-    if(tab.dataset.tab==='map') setTimeout(initMap,50);
   });
 });
-renderLog();
 </script>
 </body>
 </html>
